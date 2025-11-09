@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onet.iO | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="Styles/style.css">
+    <!-- SWIPER LINK BELOW -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo"><img src="Images/OnetLogo3.png" alt="">
+            <h3>ONET</h3>
+        </div>
+
+        <ul class="sidebar"> <!-- Hamburger Menu -->
+            <li class="menuClose-button" id="hideSidebar" onclick=hideSidebar()><a href="#"><svg
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#1f1f1f">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg></a></li>
+            <hr id="menuClose-line">
+            <li id="home"><a href="#">Home</a></li>
+            <li id="about"><a href="about.html">About</a></li>
+            <li id="contact"><a href="support.html">Support</a></li>
+            <li id="utilities"><a href="utilities.html">Utilities</a></li>
+        </ul>
+
+        <ul><!-- Main Navigation Menu -->
+            <li class="hideOnMobile" id="home"><a href="#">Home</a></li>
+            <li class="hideOnMobile" id="about"><a href="about.html">About</a></li>
+            <li class="hideOnMobile" id="contact"><a href="support.html">Support</a></li>
+            <li class="hideOnMobile" id="utilities"><a href="utilities.html">Utilities</a></li>
+            <li class="menuOpen-button" id="showSidebar" onclick=showSidebar()><a href="#"><svg
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#1f1f1f">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg></a></li>
+
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="bgimg" class="wrapper1 bgimg">
+            <div class="section-top">
+                <h1 id="welcome-txt">Welcome to Open Network Technology <br /> </h1>
+                <span class="naration"><em>A web3 gateway into decentralised ecosystem, where innovations and
+                        tech meet differently. <br> We are constantly building with innovations. Stay strategically
+                        connected with us.</em>
+                </span>
+                <div class="cta-box">
+                    <button type="button" id="products" class="cta-button"><a href="#explorer">products</a></button>
+                    <button type="button" id="services" class="cta-button"><a
+                            href="../OnetUpskill/index.html">services</a></button>
+                </div>
+            </div>
+            <img src="Images/OnetLogo1.png" title="What if 1 $ONE = $6" alt="Banner in landing page">
+        </div>
+
+        <!-- {include file="adcards.html"} -->
+        <div class="explorer-notes">
+            <div id="explorer" class="explorer">
+                <h1>Explore Our Core Innovations</h1>
+                <span class="subheading">Training, Empowering, and Connecting the global community of users throuhg $ONE
+                    ecosystem Technology.
+                </span>
+            </div>
+
+
+            <!-- INNOVATIONS CARDS START HERE...! -->
+
+            <div id="slide-container" class="slide-container swiper"> <!--EVERYTHING -->
+                <div class="wrapper">
+                    <div class="swiper-wrapper">
+                        <!--EACH-CARD-1 -->
+                        <div class="card-wrapper swiper-slide">
+                            <div class="card-image">
+                                <img src="Images/web3-baner.png" alt="web3 technologies">
+                                <span class="overlay-tagname">
+                                    Web3
+                                </span>
+                            </div>
+                            <div class="card-content-section">
+                                <h3 class="card-title">Knowledge-Base & Value Growth</h3>
+                                <span class="description">
+                                    We connect users, train and empower the global community while maintaining security
+                                    throuhg $ONE ecosystem technology, so to support self development through our Web3
+                                    skill-set offerings within and outside ONET Ecosystem. Get Strategically connected
+                                    with us and be positioned for endless opportunities, we are building value.
+                                </span>
+                                <div class="user-panel">
+                                    <div class="user-profile">
+                                        <img src="Images/Profile-Pix.jpg" alt="" class="profile-image">
+                                        <span class="user-details">
+                                            <h4>Chris Anyichukwu</h4>
+                                            <span class="user-office">
+                                                <em>Web3 Instructor</em>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="readmore"><a href="https://zillionfundz.github.io/profilecard/">Learn
+                                            More:</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--EACH-CARD-2 -->
+                        <div class="card-wrapper swiper-slide">
+                            <div class="card-image">
+                                <img src="Images/tech-baner.png" alt="web3 technologies">
+                                <span class="overlay-tagname">
+                                    Technology
+                                </span>
+                            </div>
+                            <div class="card-content-section">
+                                <h3 class="card-title">Mobile Apps and Web Technologies</h3>
+                                <span class="description">
+                                    Connecting with us throuhg our Open Network technology, you could affordably
+                                    purchase any of our tehnology products or pay for any of the services that we offer.
+                                    We build Websites and develop V.B. desktop applications. Our mobile apps development
+                                    service is coming "very" soon. Stay active and be in touch with us.
+                                </span>
+                                <div class="user-panel">
+                                    <div class="user-profile">
+                                        <img src="Images/Profile-Pix.jpg" alt="" class="profile-image">
+                                        <span class="user-details">
+                                            <h4>Chris Anyichukwu</h4>
+                                            <span class="user-office">
+                                                <em>Web. Developer</em>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="readmore"><a href="https://zillionfundz.github.io/profilecard/">Learn
+                                            More:</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--EACH-CARD-3 -->
+                        <div class="card-wrapper swiper-slide">
+                            <div class="card-image">
+                                <img src="Images/vrgame-baner.png" alt="web3 technologies">
+                                <span class="overlay-tagname">
+                                    Entertainments
+                                </span>
+                            </div>
+                            <div class="card-content-section">
+                                <h3 class="card-title">Crypto Updates, Celebrity Gists & Gaming</h3>
+                                <span class="description">
+                                    Have you ever wondered how entertainments could be utilised for income earnings?
+                                    Herein, we offer a lot of entertaining utilities that users could leverage on and
+                                    utilise, not only to deriving pleasure from them but also, to paasively earn
+                                    seamlessly alongside having fun. (The Decentralised Entertainments).
+                                </span>
+                                <div class="user-panel">
+                                    <div class="user-profile">
+                                        <img src="Images/Profile-Pix.jpg" alt="" class="profile-image">
+                                        <span class="user-details">
+                                            <h4>ZillionFundz</h4>
+                                            <span class="user-office">
+                                                <em>Entertainer</em>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="readmore"><a href="https://zillionfundz.github.io/profilecard/">Learn
+                                            More:</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FOR PAGINATIONS -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+        <!-- <div class="ads">
+            <div class="adcard" id="adcard">
+                <img src="Images/banner1.jpg" alt="">
+            </div>
+            <div class="adcard" id="adcard">
+                <img src="Images/banner2.jpg" alt="">
+            </div>
+            <div class="adcard" id="adcard">
+                <img src="Images/banner3.jpg" alt="">
+            </div>
+            <div class="adcard" id="adcard">
+                <img src="Images/banner4.jpg" alt="">
+            </div>
+            <div class="adcard" id="adcard">
+                <img src="Images/banner5.jpg" alt="">
+            </div>
+        </div> -->
+
+
+        <!-- WALLET CONNECTION STARTA HERE: 👇 -->
+        <div class="web3-portal">
+            <h3>ONET Web3 portal</h3>
+            <span class="portal-narration">interact with onet DApps & ecosystem utilities to
+                position for passive income earnings.
+            </span>
+            <div class="market-place">
+                <div class="portal-control-panel">
+                    <div class="portal-controls">
+                        <div class="wallet-btns wallet-ui">
+                            <button id="connectWalletBtn" class="portal-control-btn">
+                                Connect Wallet
+                            </button>
+                        </div>
+                        <div class="dex-box">
+                            <a href="https://zillionfundz.github.io/OnetDex/" target="_blank">
+                                <button id="openDexBtn" class="portal-control-btn">
+                                    Trade Cryptos
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wallet-box">
+                    <span>Wallet:</span>
+                    <span id="walletAddress"></span>
+                </div>
+                <div class="portal-utilities">
+                    <span>Utilities</span>
+                    <div class="utility-area">
+                        <div class="utility-box">
+                            <h4>DApps</h4>
+                            <button><i class="fa-solid fa-road-circle-check"></i>1</button>
+                        </div>
+                        <div class="utility-box">
+                            <h4>Ad Centre</h4>
+                            <button><i class="fa-solid fa-rectangle-ad"></i>2</button>
+                        </div>
+                        <div class="utility-box">
+                            <h4>Mining</h4>
+                            <button><i class="fa-solid fa-person-digging"></i>3</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="wrapper2">
+            <div class="unique-features" id="unique-features">
+                <div class="unique-intro">
+                    <h2>Why Chose Us?</h2>
+                    <p>
+                        <strong>Open Network Technology,</strong> when launched, would serve as a milestone achievement
+                        as this would bring to live, the possibility to connect both Web3, Technology and Entertainments
+                        in a
+                        unified
+                        single whole ecosystem.
+                    </p>
+                </div>
+                <div class="why-choseus">
+                    <!-- <div class="feature-group"> -->
+                    <div class="feature-border-design">
+                        <div class="feature" id="feature1"> <!-- QUOTA-1 -->
+                            <img src="Images/OnetLogo1.png" alt="">
+                            <h3>Expert-Led Teams</h3>
+                            <span class="reason">
+                                Our skilled team provides consultancy, training, and tailored tech solutions to ONET
+                                users and global community.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="feature-border-design">
+                        <div class="feature" id="feature2"> <!-- QUOTA-2 -->
+                            <img src="Images/quota7.jpg" alt="">
+                            <h3>Web3-Tech Solutions</h3>
+                            <span class="reason">
+                                We design, develop and deliver cutting-edge blockchain technologies for decentralisation
+                                solutions.
+                            </span>
+                        </div>
+                    </div>
+                    <!-- <div class="feature-group"> -->
+                    <!-- </div> -->
+                    <div class="feature-border-design">
+                        <div class="feature" id="feature3"> <!-- QUOTA-3 -->
+                            <img src="Images/quota3.jpg" alt="">
+                            <h3>Community Approach</h3>
+                            <span class="reason">
+                                Empowering individuals and businesses through our open network ecosystem and education.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="feature-border-design">
+                        <div class="feature" id="feature4"> <!-- QUOTA-4 -->
+                            <img src="Images/quota5.jpg" alt="">
+                            <h3>Trusted & Future-Ready</h3>
+                            <span class="reason">
+                                With a focus on security, scalability, and decentralisation, we build for tomorrow's
+                                technology.
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- TESTIMONIALS STARTS HERE -->
+        <section class="testimonials">
+            <div class="testimonial-heading">
+                <h2>What Our Users Say</h2>
+                <span class="media">
+                    across social media
+                </span>
+            </div>
+            <div class="swiper testimonials-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide testimonial-card">
+                        <div class="testimonial-container">
+                            <div class="testimonial-details">
+                                <img src="Images/Profile-Pix0001.jpg" alt="" class="profile-image">
+                                <p class="testimonial-text">"So glad to be an ONETOR. Keep Building, I love this
+                                    project!😍"</p>
+                                <span class="testimonial-user">X: — @Oceanicfunds</span>
+                            </div>
+                            <div class="shot">
+                                <img src="Images/shot1.jpg" alt="" class="shot-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide testimonial-card">
+                        <div class="testimonial-container">
+                            <div class="testimonial-details">
+                                <img src="Images/Profile-Pix0002.jpg" alt="" class="profile-image">
+                                <p class="testimonial-text">"Excellent support & great tech team. I Love ONET for
+                                    real!💯"
+                                </p>
+                                <span class="testimonial-user">X: — @Julichyma</span>
+                            </div>
+                            <div class="shot">
+                                <img src="Images/shot2.jpg" alt="" class="shot-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide testimonial-card">
+                        <div class="testimonial-container">
+                            <div class="testimonial-details">
+                                <img src="Images/Profile-Pix0003.jpg" alt="" class="profile-image">
+                                <p class="testimonial-text">"ONET UI & UX are seamless. Great Project indeed!👍"</p>
+                                <span class="testimonial-user">X: — @ZillionFundz</span>
+                            </div>
+                            <div class="shot">
+                                <img src="Images/shot3.jpg" alt="" class="shot-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide testimonial-card">
+                        <div class="testimonial-container">
+                            <div class="testimonial-details">
+                                <img src="Images/Profile-Pix0004.jpg" alt="" class="profile-image">
+                                <p class="testimonial-text">"Leading to a decentralised future. Lets shape ONET
+                                    together!💥"</p>
+                                <span class="testimonial-user">X: — @Julichyma</span>
+                            </div>
+                            <div class="shot">
+                                <img src="Images/shot4.jpg" alt="" class="shot-image">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more .swiper-slide testimonial-cards as needed -->
+                </div>
+                <!-- Swiper Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Swiper Navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+        <!-- ...existing code... -->
+        <div class="read-more">
+            <p>
+                Welcome to The Open Network Technology!
+            </p>
+        </div>
+    </div>
+
+    <!--<div>
+        <video autoplay loop muted plays-inline class="homevid">
+            <source src="Images/homevid.mp4" type="video/mp4">
+        </video>
+    </div>-->
+
+    <!-- SWIPER SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <!-- WALLET CONNECTION SCRIPT  -->
+    <!-- Wallet Libraries (order matters) -->
+    <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3modal@1.9.12/dist/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
+    <!-- Your app script -->
+    <script src="Scripts/script.js"></script>
+</body>
+
+</html>
