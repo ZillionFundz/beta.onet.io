@@ -1,2 +1,3 @@
 At first. we are going to deploy just 10 Beta-Testers to experience the use of different devices and give feedback to enable the Dev. Team review the feeds and make necessary decisions to implement changes where necessary.
+
 A maximum of 200 users are permitted to take part in the Beta-Testing of ONET at its early "Pre-Launch" stage for feedbacks. And this would aid improved UI/UX feasibility and ease at bug detection approach.
