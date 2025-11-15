@@ -522,7 +522,9 @@ span.description {
 }
 
 .portal-control-btn {
-    background: #5025D1;
+    /* background: #5025D1; */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(#5025d1, #dce7f8);
     color: #fff;
     border: none;
     min-width: 120px;
@@ -563,6 +565,8 @@ span.description {
     font-size: clamp(12px, 2vw, 100px);
     /* left: 0; */
     padding: 2px 10px;
+    background: #cfdeeb;
+    border-radius: 2px;
 }
 
 /* #walletAddress {
@@ -590,9 +594,18 @@ span.description {
 
 .utility-area {
     display: flex;
-    justify-content: space-between;
+    /* grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); */
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
     padding: 10px 0px 2px;
+    gap: 5px;
+}
+
+.utility-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
 }
 
@@ -606,8 +619,8 @@ span.description {
     /* border: 0.1px dashed #333; */
     background: #cad9e9;
     border-radius: 10px;
-    max-width: 100%;
     width: 25vw;
+    max-width: 100%;
     gap: 5px;
     /* box-shadow: 0px 0px 7px 2px rgba(51, 51, 51, 0.1); */
 }
@@ -616,12 +629,13 @@ span.description {
     background: none;
     border: none;
     cursor: pointer;
-    width: 55px;
+    min-width: 65px;
     background: #0166ff;
     color: #dadcdf;
     border-radius: 5px;
     margin: 0px;
-    padding: 4px 12px;
+    padding: 4px 5px;
+    font-size: clamp(12px, 1vw, 100px);
 }
 
 .utility-box h4 {
