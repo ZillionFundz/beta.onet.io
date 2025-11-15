@@ -536,11 +536,10 @@ span.description {
 }
 
 .portal-control-btn:hover {
-    /* background: #b5c0c9; */
-    background: #8c9194;
+    /* background: #8c9194; */
+    background: #5025D1;
     /* border-radius: 28px; */
-    border: 1px solid #2d2e2e;
-    color: #2d2e2e;
+    color: #dddddd;
     padding: 9px 9px;
 }
 
