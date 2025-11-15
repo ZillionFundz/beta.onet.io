@@ -644,7 +644,8 @@ span.description {
 
 .fa-solid {
     font-size: clamp(16px, 2vw, 100px);
-    color: #bbbfc2;
+    /* color: #bbbfc2; */
+    color: #e3e3e4;
     margin-right: 2px;
 }
 
