@@ -522,13 +522,13 @@ span.description {
 }
 
 .portal-control-btn {
-    /* background: #5025D1; */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(#5025d1, #dce7f8);
+    background: #5025D1;
+    /* background: linear-gradient(#5025d1, #dce7f8); */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
     min-width: 120px;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px 10px;
     font-size: clamp(14px, 1vw, 100px);
     cursor: pointer;
@@ -536,9 +536,8 @@ span.description {
 }
 
 .portal-control-btn:hover {
-    /* background: #8c9194; */
-    background: #5025D1;
-    /* border-radius: 28px; */
+    /* background: #5025D1; */
+    background: linear-gradient(#5025d1, #dce7f8);
     color: #dddddd;
     padding: 9px 9px;
 }
@@ -984,7 +983,7 @@ a {
     font-size: clamp(14px, 1.5vw, 100px);
     margin: 2px;
     padding: 0px;
-    line-height: 3vh;
+    line-height: 16px;
     text-align: center;
     text-transform: uppercase;
 }
