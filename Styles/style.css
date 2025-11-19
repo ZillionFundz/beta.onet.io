@@ -624,6 +624,9 @@ span.description {
 }
 
 .utility-box button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: none;
     border: none;
     cursor: pointer;
@@ -632,13 +635,24 @@ span.description {
     color: #dadcdf;
     border-radius: 5px;
     margin: 0px;
-    padding: 4px 5px;
+    padding: 3px 5px;
     font-size: clamp(12px, 1vw, 100px);
 }
 
 .utility-box h4 {
     font-size: clamp(12px, 1vw, 100px);
     text-align: center;
+}
+
+.separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid #ad9ae9; */
+    border: 1px solid #9b9a9a;
+    margin: 0px 5px;
+    height: 18px;
 }
 
 .fa-solid {
@@ -742,7 +756,7 @@ span.description {
     /* font-weight: bold; */
     width: 65vw;
     height: auto;
-    border-radius: 40px;
+    border-radius: 25px;
     margin: 0px;
     padding: 15px 10px;
     border: none;
@@ -1253,7 +1267,7 @@ a {
         /* font-weight: bold; */
         /* width: 0vw; */
         height: auto;
-        border-radius: 40px;
+        border-radius: 25px;
         margin: 0px;
         padding: 15px 10px;
         border: none;
@@ -1426,7 +1440,7 @@ a {
         /* font-weight: bold; */
         /* width: 0vw; */
         height: auto;
-        border-radius: 40px;
+        border-radius: 25px;
         margin: 0px;
         padding: 15px 30px;
         border: none;
@@ -1497,7 +1511,7 @@ a {
         /* font-weight: bold; */
         /* width: 0vw; */
         height: auto;
-        border-radius: 40px;
+        border-radius: 25px;
         margin: 0px;
         padding: 10px 20px;
         border: none;
@@ -1589,7 +1603,7 @@ a {
         /* font-weight: bold; */
         /* width: 0vw; */
         height: auto;
-        border-radius: 40px;
+        border-radius: 25px;
         margin: 0px;
         padding: 10px 15px;
         border: none;
