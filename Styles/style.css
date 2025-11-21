@@ -46,7 +46,7 @@ body {
     background: #0166ff;
     /* background: #5025d1; */
     /* background-color: rgb(98, 54, 231); */
-    border-bottom: 8px solid #5025d1;
+    border-bottom: 4px solid #5025d1;
     /* border-bottom: 8px solid #0166ff; */
     /* border-bottom: 8px solid rgb(98, 54, 231); */
     font-family: Arial, Helvetica, sans-serif;
@@ -149,7 +149,7 @@ ul li a:hover {
     z-index: 1;
     inset: 0;
     transform: translate(-100%);
-    background: rgba(130, 130, 130, 0.7);
+    background: rgba(180, 180, 180, 0.5);
     /* display: none; */
 }
 
