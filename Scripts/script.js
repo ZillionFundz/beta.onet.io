@@ -1,4 +1,10 @@
 // ...existing code preserved and improved...
+const overLay = document.getElementById('overlay');
+const sideBar = document.getElementById('side-bar');
+overLay.addEventListener('click', () => {
+    sideBar.style.display = 'none';
+})
+
 
 /* CTA ripple effect */
 document.querySelectorAll('.cta-button').forEach(button => {
@@ -137,3 +143,4 @@ window.addEventListener('load', async () => {
 });
 
 // ...existing code may continue below ...
+
