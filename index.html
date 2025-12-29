@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onet.iO | Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
     <link rel="stylesheet" href="Styles/style.css">
     <!-- SWIPER LINK BELOW -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -20,14 +19,18 @@
             <h3>ONET</h3>
         </div>
 
-        <ul id="side-bar" class="sidebar"> <!-- Hamburger Menu -->
+        <!-- Sidebar -->
+        <ul id="sidebar" class="sidebar">
             <div id="overlay" class="overlay"></div>
-            <li class="menuClose-button" id="hide-sidebar" onclick=hideSidebar()><a href="#"><svg
-                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+            <li class="menuClose-button" id="hide-sidebar">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="#1f1f1f">
                         <path
                             d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                    </svg></a></li>
+                    </svg>
+                </a>
+            </li>
             <hr id="menuClose-line">
             <li id="home"><a href="#">Home</a></li>
             <li id="about"><a href="about.html">About</a></li>
@@ -36,17 +39,20 @@
             <li id="whitepaper"><a href="onetwhitepaper.pdf" target="_blank">Whitepaper</a></li>
         </ul>
 
-        <ul><!-- Main Navigation Menu -->
+
+        <ul><!-- Main Navigation -->
             <li class="hideOnMobile" id="home"><a href="#">Home</a></li>
             <li class="hideOnMobile" id="about"><a href="about.html">About</a></li>
             <li class="hideOnMobile" id="contact"><a href="support.html">Support</a></li>
             <li class="hideOnMobile" id="utilities"><a href="utilities.html">Utilities</a></li>
-            <li class="menuOpen-button" id="showSidebar" onclick=showSidebar()><a href="#"><svg
-                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+            <li class="menuOpen-button" id="showSidebar">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="#1f1f1f">
                         <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-                    </svg></a></li>
-
+                    </svg>
+                </a>
+            </li>
         </ul>
     </nav>
     <div class="container">
@@ -434,15 +440,11 @@
     <!-- SWIPER SCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <!-- Your module script -->
+    <script src="Scripts/ui.js" defer></script>
+    <script type="module" src="Scripts/wallet.js"></script>
 
-    <!-- WALLET CONNECTION SCRIPT  -->
-    <!-- Wallet Libraries (order matters) -->
-    <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/web3modal@1.9.12/dist/index.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
 
-    <!-- Your app script -->
-    <script src="Scripts/script.js"></script>
 </body>
 
 </html>
