@@ -107,19 +107,21 @@ window.addEventListener('load', async () => {
             const signer = provider.getSigner();
             const address = await signer.getAddress();
             console.log('Connected address:', address);
-
+            const disconnectWalletBtn = document.getElementById('disconnect-wallet-btn');
 
             // Update UI with connected address
             document.getElementById('walletAddress').textContent =
                 `Connected: ${address.slice(0, 6)}...${address.slice(-4)}`;
             msgTxt.style.color = '#40d483';
+            disconnectWalletBtn.classList.remove('hide');
+
             // Subscribe to events
             instance.on("accountsChanged", (accounts) => {
                 if (accounts.length > 0) {
                     // var msgTxt = document.getElementById('walletAddress');
                     msgTxt.textContent =
                         `Connected: ${accounts[0].slice(0, 6)}...${accounts[0].slice(-4)}`;
-                    // msgTxt.style.color = '#40d483';
+                    // msgTxt.style.color = '#28b165ff';
                 } else {
                     document.getElementById('walletAddress').textContent = 'Not connected';
                 }
@@ -140,6 +142,14 @@ window.addEventListener('load', async () => {
 
     // Auto-connect if previously connected
     if (web3Modal.cachedProvider) connect();
+
+
+
+    let disconnectBtn = document.getElementById('disconnect-wallet-btn');
+    if (disconnectBtn) disconnectBtn.addEventListener('click', async () => {
+        await web3Modal.clearCachedProvider();
+        window.location.reload();
+    });
 });
 
 // ...existing code may continue below ...
