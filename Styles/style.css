@@ -572,9 +572,45 @@ span.description {
     align-items: center;
     font-size: clamp(12px, 2vw, 100px);
     /* left: 0; */
-    padding: 2px 10px;
+    padding: 2px 0px 2px 10px;
     background: #cfdeeb;
     border-radius: 2px;
+}
+
+.walletAddress {
+    font-size: clamp(12px, 1.5vw, 100px);
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.connect-and-disconnect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.connect-and-disconnect .fa-disconnect {
+    font-size: clamp(14px, 1.5vw, 100px);
+    color: #fff;
+}
+
+.disconnect-wallet-btn {
+    background: #ff4d4d;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: clamp(10px, 1vw, 100px);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0px;
+    padding: 5px 5px;
+}
+
+.hide {
+    display: none;
 }
 
 /* #walletAddress {
