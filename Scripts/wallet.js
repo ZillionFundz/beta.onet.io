@@ -29,7 +29,7 @@ const modal = createWeb3Modal({
     ethersConfig,
     chains,
     projectId,
-    themeMode: "dark"
+    themeMode: "dark" // "dark" | "light" | "system" | "auto"
 });
 
 const connectBtn = document.getElementById("connectWalletBtn");
