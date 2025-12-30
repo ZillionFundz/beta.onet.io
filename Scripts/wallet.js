@@ -47,7 +47,9 @@ function setDisconnectedUI() {
     if (walletText) {
         walletText.textContent = "Not connected";
         walletText.style.color = "#999";
+        walletText.onclick = null; // remove click
     }
+
     disconnectBtn?.classList.add("hide");
 }
 
@@ -56,7 +58,18 @@ function setConnectedUI(address) {
     if (walletText) {
         walletText.textContent = `Connected: ${short}`;
         walletText.style.color = "#40d483";
+
+        // allow user to copy full wallet on click
+        walletText.onclick = () => {
+            navigator.clipboard.writeText(address)
+                .then(() => {
+                    walletText.textContent = "Copied!";
+                    setTimeout(() => walletText.textContent = `Connected: ${short}`, 1200);
+                })
+                .catch(err => console.error("Copy failed:", err));
+        };
     }
+
     disconnectBtn?.classList.remove("hide");
 }
 
@@ -64,10 +77,7 @@ function setConnectedUI(address) {
 window.connectWallet = async () => {
     try {
         await modal.open();
-
-        // mark as intentionally connected
         localStorage.setItem(WALLET_SESSION_KEY, "true");
-
         await syncWalletState();
     } catch (err) {
         console.error("Wallet modal error:", err);
@@ -100,15 +110,16 @@ async function syncWalletState() {
     }
 }
 
-// ---------------- AUTO SYNC ON LOAD (NO POPUP) ----------------
+// ---------------- AUTO RESTORE ON LOAD ----------------
 window.addEventListener("load", async () => {
     const wasConnected = localStorage.getItem(WALLET_SESSION_KEY);
-    if (!wasConnected) return;
+    if (!wasConnected) {
+        setDisconnectedUI();
+        return;
+    }
 
     try {
-        // Try to silently restore provider
         const provider = modal.getWalletProvider?.();
-
         if (!provider) {
             setDisconnectedUI();
             return;
@@ -123,13 +134,12 @@ window.addEventListener("load", async () => {
         } else {
             setDisconnectedUI();
         }
-    } catch (err) {
+    } catch {
         setDisconnectedUI();
     }
 });
 
-
-// ---------------- LISTEN FOR WALLET STATE CHANGES ----------------
+// ---------------- LISTEN FOR WALLET EVENTS ----------------
 modal.subscribeState(() => {
     syncWalletState();
 });
@@ -140,13 +150,11 @@ disconnectBtn?.addEventListener("click", async () => {
         await modal.disconnect();
     } catch (err) {
         console.error("Disconnect error:", err);
-    } finally {
-        localStorage.removeItem(WALLET_SESSION_KEY);
-        setDisconnectedUI();
-
-        // optional clean refresh
-        setTimeout(() => {
-            window.location.reload();
-        }, 150);
     }
+
+    localStorage.removeItem(WALLET_SESSION_KEY);
+    setDisconnectedUI();
+
+    // optional refresh
+    setTimeout(() => window.location.reload(), 150);
 });
