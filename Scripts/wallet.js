@@ -39,6 +39,9 @@ const connectBtn = document.getElementById("connectWalletBtn");
 const disconnectBtn = document.getElementById("disconnect-wallet-btn");
 const walletText = document.getElementById("walletAddress");
 
+// ---------------- STORAGE KEY ----------------
+const WALLET_SESSION_KEY = "onet_wallet_connected";
+
 // ---------------- UI HELPERS ----------------
 function setDisconnectedUI() {
     if (walletText) {
@@ -61,29 +64,50 @@ function setConnectedUI(address) {
 window.connectWallet = async () => {
     try {
         await modal.open();
-        // Ensure UI updates after a successful connection
+
+        // mark as intentionally connected
+        localStorage.setItem(WALLET_SESSION_KEY, "true");
+
         await syncWalletState();
     } catch (err) {
         console.error("Wallet modal error:", err);
-        alert("Wallet connection failed. Check console.");
     }
 };
 
 connectBtn?.addEventListener("click", window.connectWallet);
 
-// ---------------- READ WALLET STATE (CORRECT WAY) ----------------
+// ---------------- WALLET STATE SYNC ----------------
 async function syncWalletState() {
     try {
-        // The provider might not be immediately available on page load.
-        // Wait briefly for it to appear so a connected wallet persists across refresh.
-        const timeout = 5000; // ms
-        const interval = 200; // ms
-        const start = Date.now();
-        let provider = modal.getWalletProvider?.();
-        while (!provider && Date.now() - start < timeout) {
-            await new Promise((res) => setTimeout(res, interval));
-            provider = modal.getWalletProvider?.();
+        const provider = modal.getWalletProvider?.();
+        if (!provider) {
+            setDisconnectedUI();
+            return;
         }
+
+        const ethersProvider = new BrowserProvider(provider);
+        const signer = await ethersProvider.getSigner();
+        const address = await signer.getAddress();
+
+        if (address) {
+            setConnectedUI(address);
+            localStorage.setItem(WALLET_SESSION_KEY, "true");
+        } else {
+            setDisconnectedUI();
+        }
+    } catch {
+        setDisconnectedUI();
+    }
+}
+
+// ---------------- AUTO SYNC ON LOAD (NO POPUP) ----------------
+window.addEventListener("load", async () => {
+    const wasConnected = localStorage.getItem(WALLET_SESSION_KEY);
+    if (!wasConnected) return;
+
+    try {
+        // Try to silently restore provider
+        const provider = modal.getWalletProvider?.();
 
         if (!provider) {
             setDisconnectedUI();
@@ -102,9 +126,10 @@ async function syncWalletState() {
     } catch (err) {
         setDisconnectedUI();
     }
-}
+});
 
-// ---------------- LISTEN FOR STATE CHANGES ----------------
+
+// ---------------- LISTEN FOR WALLET STATE CHANGES ----------------
 modal.subscribeState(() => {
     syncWalletState();
 });
@@ -116,14 +141,12 @@ disconnectBtn?.addEventListener("click", async () => {
     } catch (err) {
         console.error("Disconnect error:", err);
     } finally {
-        // Hide disconnect button immediately and reset UI, then reload to clear state
+        localStorage.removeItem(WALLET_SESSION_KEY);
         setDisconnectedUI();
-        // Brief delay so user sees the UI change before reload
+
+        // optional clean refresh
         setTimeout(() => {
             window.location.reload();
-        }, 200);
+        }, 150);
     }
 });
-
-// Run once on load (auto-reconnect support)
-syncWalletState();
