@@ -1,5 +1,7 @@
 import { createWeb3Modal, defaultConfig } from "https://esm.sh/@web3modal/ethers@latest";
+import { BrowserProvider } from "https://esm.sh/ethers@6";
 
+// ---------------- CHAINS ----------------
 const chains = [
     { chainId: 1, name: "Ethereum", rpcUrl: "https://rpc.ankr.com/eth" },
     { chainId: 56, name: "BNB Smart Chain", rpcUrl: "https://bsc-dataseed.binance.org" },
@@ -8,7 +10,7 @@ const chains = [
     { chainId: 10, name: "Optimism", rpcUrl: "https://mainnet.optimism.io" }
 ];
 
-// const projectId = "fdc5d0ef191d4963b3dd39400db6c64a";// old id
+// ---------------- CONFIG ----------------
 const projectId = "f2d9df4b7cef61124048efecabf613c0";
 
 const metadata = {
@@ -29,81 +31,89 @@ const modal = createWeb3Modal({
     ethersConfig,
     chains,
     projectId,
-    themeMode: "dark" // "dark" | "light" | "system" | "auto"
+    themeMode: "dark"
 });
 
+// ---------------- DOM ----------------
 const connectBtn = document.getElementById("connectWalletBtn");
 const disconnectBtn = document.getElementById("disconnect-wallet-btn");
 const walletText = document.getElementById("walletAddress");
 
+// ---------------- UI HELPERS ----------------
+function setDisconnectedUI() {
+    if (walletText) {
+        walletText.textContent = "Not connected";
+        walletText.style.color = "#999";
+    }
+    disconnectBtn?.classList.add("hide");
+}
+
+function setConnectedUI(address) {
+    const short = `${address.slice(0, 6)}...${address.slice(-4)}`;
+    if (walletText) {
+        walletText.textContent = `Connected: ${short}`;
+        walletText.style.color = "#40d483";
+    }
+    disconnectBtn?.classList.remove("hide");
+}
+
+// ---------------- CONNECT ----------------
 window.connectWallet = async () => {
     try {
         await modal.open();
+        // Ensure UI updates after a successful connection
+        await syncWalletState();
     } catch (err) {
-        console.error('modal.open failed:', err);
-        // Show a short user-friendly message and prompt them to check console/network
-        try { alert('Wallet connection failed. Check the console for details.'); } catch (e) { /* ignore in non-window env */ }
+        console.error("Wallet modal error:", err);
+        alert("Wallet connection failed. Check console.");
     }
 };
 
 connectBtn?.addEventListener("click", window.connectWallet);
 
-// Log modal events (useful to capture CONNECT_ERROR, DISCONNECT and other events)
-if (typeof modal.subscribeEvents === 'function') {
-    modal.subscribeEvents((event) => {
-        if (event?.type && event.type.toString().includes('ERROR')) {
-            console.error('web3modal event (error):', event);
-            try { alert(`Wallet error: ${event?.error?.message || event.type}`); } catch (e) { }
-        } else {
-            console.debug('web3modal event:', event);
+// ---------------- READ WALLET STATE (CORRECT WAY) ----------------
+async function syncWalletState() {
+    try {
+        const provider = modal.getWalletProvider?.();
+        if (!provider) {
+            setDisconnectedUI();
+            return;
         }
-    });
-} else {
-    console.debug('modal.subscribeEvents not available on this modal instance');
+
+        const ethersProvider = new BrowserProvider(provider);
+        const signer = await ethersProvider.getSigner();
+        const address = await signer.getAddress();
+
+        if (address) {
+            setConnectedUI(address);
+        } else {
+            setDisconnectedUI();
+        }
+    } catch (err) {
+        setDisconnectedUI();
+    }
 }
 
-modal.subscribeState(state => {
-    // Debug current state shape for troubleshooting
-    console.debug('web3modal state:', state);
-
-    // also try to capture a snapshot from modal if available
-    const snapshot = typeof modal.getState === 'function' ? modal.getState() : null;
-    if (snapshot) console.debug('web3modal snapshot:', snapshot);
-
-    // candidate keys to search for an address in the state shape
-    const candidates = [
-        'selectedAccount', 'selectedAddress', 'selectedAccounts',
-        'account', 'accounts', 'address', 'userAddress', 'connectedAccount',
-        'connected', 'walletAddress'
-    ];
-
-    let raw = null;
-    for (const key of candidates) {
-        if (state && Object.prototype.hasOwnProperty.call(state, key)) { raw = state[key]; break; }
-        if (snapshot && Object.prototype.hasOwnProperty.call(snapshot, key)) { raw = snapshot[key]; break; }
-    }
-
-    // As a fallback, check nested structures that some adapters use
-    if (!raw && state?.wallet?.accounts) raw = state.wallet.accounts;
-    if (!raw && snapshot?.wallet?.accounts) raw = snapshot.wallet.accounts;
-
-    let addr = null;
-    if (Array.isArray(raw)) addr = raw[0];
-    else if (raw && typeof raw === 'object') addr = raw.address || raw[0] || raw?.accounts?.[0] || null;
-    else addr = raw;
-
-    console.debug('resolved address:', addr);
-
-    if (addr && typeof addr === 'string' && addr.length > 0) {
-        const short = addr.length > 10 ? `${addr.slice(0, 6)}...${addr.slice(-4)}` : addr;
-        if (walletText) { walletText.textContent = `Connected: ${short}`; walletText.style.color = "#40d483"; }
-        if (disconnectBtn) disconnectBtn.classList.remove("hide");
-    } else {
-        if (walletText) { walletText.textContent = "Not connected"; walletText.style.color = "#999"; }
-        if (disconnectBtn) disconnectBtn.classList.add("hide");
-    }
+// ---------------- LISTEN FOR STATE CHANGES ----------------
+modal.subscribeState(() => {
+    syncWalletState();
 });
 
+// ---------------- DISCONNECT ----------------
 disconnectBtn?.addEventListener("click", async () => {
-    await modal.disconnect();
+    try {
+        await modal.disconnect();
+    } catch (err) {
+        console.error("Disconnect error:", err);
+    } finally {
+        // Hide disconnect button immediately and reset UI, then reload to clear state
+        setDisconnectedUI();
+        // Brief delay so user sees the UI change before reload
+        setTimeout(() => {
+            window.location.reload();
+        }, 200);
+    }
 });
+
+// Run once on load (auto-reconnect support)
+syncWalletState();
