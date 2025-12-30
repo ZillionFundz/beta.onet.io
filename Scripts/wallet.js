@@ -74,7 +74,17 @@ connectBtn?.addEventListener("click", window.connectWallet);
 // ---------------- READ WALLET STATE (CORRECT WAY) ----------------
 async function syncWalletState() {
     try {
-        const provider = modal.getWalletProvider?.();
+        // The provider might not be immediately available on page load.
+        // Wait briefly for it to appear so a connected wallet persists across refresh.
+        const timeout = 5000; // ms
+        const interval = 200; // ms
+        const start = Date.now();
+        let provider = modal.getWalletProvider?.();
+        while (!provider && Date.now() - start < timeout) {
+            await new Promise((res) => setTimeout(res, interval));
+            provider = modal.getWalletProvider?.();
+        }
+
         if (!provider) {
             setDisconnectedUI();
             return;
