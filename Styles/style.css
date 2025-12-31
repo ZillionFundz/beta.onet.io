@@ -918,12 +918,13 @@ a {
     width: 100%;
     margin: auto;
     padding: 5px 0px 5px;
-    border: 1px dotted #dce7f8;
-    background: #dce7f8;
+    border: 1px dotted #6d6d91;
+    background: #e0e7f2;
     border-radius: 10px;
 }
 
 .tv-chart {
+    /* visibility: hidden; */
     width: 100%;
     height: 500px;
 }
