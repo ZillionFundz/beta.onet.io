@@ -1,46 +1,46 @@
 // tvwidget.js
 
-export function loadTradingView(containerId = "tv-chart") {
-    if (!document.getElementById(containerId)) return;
+export function loadTradingView(containerId = "tv-chart", options = {}) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
 
-    // Prevent duplicate initialization
     if (window.__tv_loaded) return;
     window.__tv_loaded = true;
 
-    // Load TradingView core library first
-    const tvCore = document.createElement("script");
-    tvCore.src = "https://s3.tradingview.com/tv.js";
-    tvCore.async = true;
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/tv.js";
+    script.async = true;
 
-    tvCore.onload = () => {
-        const widgetScript = document.createElement("script");
-        widgetScript.type = "text/javascript";
+    script.onload = () => {
+        new TradingView.widget({
+            container_id: containerId,
 
-        widgetScript.innerHTML = `
-            new TradingView.widget({
-                container_id: "${containerId}",
-                symbol: "NASDAQ:AAPL",
-                interval: "D",
-                timezone: "Etc/UTC",
+            // ---- CORE CONFIG ----
+            symbol: options.symbol || "NASDAQ:AAPL",
+            interval: options.interval || "D",
+            timezone: options.timezone || "Etc/UTC",
+            autosize: true,
+            theme: options.theme || "dark",
 
-                autosize: true,
-                theme: "light",
-                style: "1",
+            // ---- STYLE ----
+            style: options.style || "1",
+            backgroundColor: options.backgroundColor || "#3f3f44",
+            gridColor: options.gridColor || "rgba(255,255,255,0.06)",
 
-                hide_top_toolbar: false,
-                hide_side_toolbar: false,
-                hide_legend: false,
+            // ---- UI CONTROLS ----
+            hide_top_toolbar: options.hide_top_toolbar ?? false,
+            hide_side_toolbar: options.hide_side_toolbar ?? false,
+            hide_legend: options.hide_legend ?? false,
+            allow_symbol_change: options.allow_symbol_change ?? true,
+            save_image: options.save_image ?? false,
 
-                allow_symbol_change: true,
-                save_image: false,
-
-                backgroundColor: "#3f475bff",
-                gridColor: "rgba(255,255,255,0.06)"
-            });
-        `;
-
-        document.body.appendChild(widgetScript);
+            // ---- OPTIONAL EXTRAS ----
+            locale: options.locale || "en",
+            studies_overrides: options.studies_overrides || {},
+            disabled_features: options.disabled_features || [],
+            enabled_features: options.enabled_features || []
+        });
     };
 
-    document.head.appendChild(tvCore);
+    document.head.appendChild(script);
 }
