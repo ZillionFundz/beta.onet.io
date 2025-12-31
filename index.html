@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onet.iO | Home</title>
+    <!-- TRADINGVIEW PRELOADS BELOW -->
+    <link rel="preload" href="https://s3.tradingview.com/tv.js" as="script">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="Styles/style.css">
     <!-- SWIPER LINK BELOW -->
@@ -69,7 +71,13 @@
                             href="../OnetUpskill/index.html">services</a></button>
                 </div>
             </div>
-            <img src="Images/OnetLogo1.png" title="What if 1 $ONE = $6" alt="Banner in landing page">
+            <div class="widget-and-giggest-logo">
+                <img class="onet-biggest-logo" src="Images/OnetLogo1.png" title="What if 1 $ONE = $6"
+                    alt="Banner in landing page">
+                <div class="tv-box">
+                    <div id="tv-chart" class="tv-chart" style="width:100%;"></div>
+                </div>
+            </div>
         </div>
 
         <!-- {include file="adcards.html"} -->
@@ -441,8 +449,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Your module script -->
-    <script src="Scripts/ui.js" defer></script>
     <script type="module" src="Scripts/wallet.js"></script>
+    <script type="module" src="Scripts/main.js"></script>
 
 
 </body>
