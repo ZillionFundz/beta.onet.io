@@ -1,6 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
 
+
+import { loadTradingView } from "./tvwidget.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadTradingView("tv-chart");
+
+
+    // =========================
     // Sidebar
+    // =========================
     const sidebar = document.getElementById('sidebar') || document.querySelector('.sidebar');
     const showIds = ['showSidebar', 'show-sidebar'];
     const hideIds = ['hideSidebar', 'hide-sidebar'];
@@ -20,22 +28,29 @@ document.addEventListener("DOMContentLoaded", () => {
         s.style.display = "none";
     };
 
-    // Attach click handlers for open/close buttons (supports multiple id variants)
     showIds.forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.addEventListener('click', (e) => { e.preventDefault(); window.showSidebar(); });
-    });
-    hideIds.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.addEventListener('click', (e) => { e.preventDefault(); window.hideSidebar(); });
+        if (el) el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.showSidebar();
+        });
     });
 
-    // Hide when clicking overlay
+    hideIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.hideSidebar();
+        });
+    });
+
     const overlay = document.getElementById('overlay') || document.querySelector('.overlay');
     if (overlay) overlay.addEventListener('click', window.hideSidebar);
 
 
+    // =========================
     // Ripple effect
+    // =========================
     document.querySelectorAll(".cta-button").forEach(button => {
         button.addEventListener("click", e => {
             const ripple = document.createElement("span");
@@ -52,7 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+
+    // =========================
     // Swipers
+    // =========================
     if (window.Swiper) {
         try {
             new Swiper(".wrapper", {
@@ -72,5 +90,47 @@ document.addEventListener("DOMContentLoaded", () => {
             console.warn("Swiper error:", e);
         }
     }
-});
 
+
+    // =========================
+    // TradingView Advanced Chart (SINGLE CONTAINER)
+    // =========================
+    const chartContainer = document.getElementById("tv-chart");
+
+    if (chartContainer) {
+        const tvScript = document.createElement("script");
+        tvScript.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+        tvScript.async = true;
+
+        tvScript.innerHTML = JSON.stringify({
+            container_id: "tv-chart",
+
+            autosize: true,
+            symbol: "NASDAQ:AAPL",
+            interval: "D",
+            timezone: "Etc/UTC",
+            theme: "light",
+            style: "1",
+            locale: "en",
+
+            allow_symbol_change: true,
+            save_image: true,
+
+            hide_side_toolbar: true,
+            hide_top_toolbar: false,
+            hide_legend: false,
+            hide_volume: false,
+
+            calendar: false,
+            details: false,
+            hotlist: false,
+            withdateranges: false,
+
+            backgroundColor: "#ffffff",
+            gridColor: "rgba(46, 46, 46, 0.06)"
+        });
+
+        document.body.appendChild(tvScript);
+    }
+
+});
