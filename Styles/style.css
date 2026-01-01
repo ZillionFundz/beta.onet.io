@@ -924,14 +924,16 @@ a {
 
 .tv-box {
     margin: auto;
-    /* padding: 5px 0px 5px; */
+    padding: 5px 0px 5px;
     border: 1px dotted #6d6d91;
     width: 100%;
-    height: 85vh;
+    height: 79vh;
     /* background: #e0e7f2; */
     background: #24282f;
     /* border-radius: 10px; */
     box-shadow: 0px 0px 7px 2px rgba(18, 38, 63, 0.3);
+    overflow: hidden;
+    position: relative;
 }
 
 .tv-chart {
