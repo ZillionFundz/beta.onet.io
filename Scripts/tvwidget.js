@@ -1,61 +1,51 @@
+
 // ===========================================================
-// TradingView Advanced Chart (SAFE + STABLE VERSION)
+// TradingView Advanced Chart (SINGLE CONTAINER): tvwidget.js
 // ===========================================================
+
 
 export function loadTradingView(containerId = "tv-chart", options = {}) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    // Prevent double initialization
-    if (container.dataset.tvLoaded === "true") return;
-    container.dataset.tvLoaded = "true";
+    if (window.__tv_loaded) return;
+    window.__tv_loaded = true;
 
-    // Ensure container has size BEFORE init
-    container.style.width = "100%";
-    container.style.height = options.height || "500px";
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/tv.js";
+    script.async = true;
 
-    // TradingView must already exist globally
-    if (typeof window.TradingView === "undefined") {
-        console.error("TradingView library not loaded. Add tv.js in HTML before main.js");
-        return;
-    }
-
-    // Delay slightly to ensure layout is settled
-    requestAnimationFrame(() => {
-        new window.TradingView.widget({
+    script.onload = () => {
+        new TradingView.widget({
             container_id: containerId,
 
-            // ================= CORE =================
+            // ---- CORE CONFIG ----
             symbol: options.symbol || "NASDAQ:AAPL",
             interval: options.interval || "D",
             timezone: options.timezone || "Etc/UTC",
-
-            width: "100%",
-            height: options.height || 500,
-            autosize: false,
+            autosize: true,
+            theme: options.theme || "dark",
 
             // ---- STYLE ----
             style: options.style || "1",
-            theme: options.theme || "dark",
-            backgroundColor: options.backgroundColor || "#2c2c2cff",
+            backgroundColor: options.backgroundColor || "#1e1e1eff",
             gridColor: options.gridColor || "rgba(255,255,255,0.06)",
 
-
-            // ================= UI =================
+            // ---- UI CONTROLS ----
             hide_top_toolbar: options.hide_top_toolbar ?? false,
             hide_side_toolbar: options.hide_side_toolbar ?? false,
             hide_legend: options.hide_legend ?? false,
-
             allow_symbol_change: options.allow_symbol_change ?? true,
             save_image: options.save_image ?? false,
 
-            // ================= EXTRAS =================
+            // ---- OPTIONAL EXTRAS ----
             locale: options.locale || "en",
+            studies_overrides: options.studies_overrides || {},
             disabled_features: options.disabled_features || [],
-            enabled_features: options.enabled_features || [],
-
-            // Stability improvement
-            withdateranges: false,
+            enabled_features: options.enabled_features || []
         });
-    });
+    };
+
+    document.head.appendChild(script);
 }
+
