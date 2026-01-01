@@ -92,45 +92,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // =========================
-    // TradingView Advanced Chart (SINGLE CONTAINER)
-    // =========================
-    const chartContainer = document.getElementById("tv-chart");
-
-    if (chartContainer) {
-        const tvScript = document.createElement("script");
-        tvScript.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
-        tvScript.async = true;
-
-        tvScript.innerHTML = JSON.stringify({
-            container_id: "tv-chart",
-
-            autosize: true,
-            symbol: "NASDAQ:AAPL",
-            interval: "D",
-            timezone: "Etc/UTC",
-            theme: "light",
-            style: "1",
-            locale: "en",
-
-            allow_symbol_change: true,
-            save_image: true,
-
-            hide_side_toolbar: true,
-            hide_top_toolbar: false,
-            hide_legend: false,
-            hide_volume: false,
-
-            calendar: false,
-            details: false,
-            hotlist: false,
-            withdateranges: false,
-
-            backgroundColor: "#ffffff",
-            gridColor: "rgba(46, 46, 46, 0.06)"
-        });
-
-        document.body.appendChild(tvScript);
-    }
-
 });
