@@ -1,4 +1,8 @@
-// tvwidget.js
+
+// ===========================================================
+// TradingView Advanced Chart (SINGLE CONTAINER): tvwidget.js
+// ===========================================================
+
 
 export function loadTradingView(containerId = "tv-chart", options = {}) {
     const container = document.getElementById(containerId);
