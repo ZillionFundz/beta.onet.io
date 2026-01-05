@@ -1,9 +1,16 @@
 
+// ===========================================================
+// Main js that calls the tvwidget.js and other modules.
+// ===========================================================
 
-import { loadTradingView } from "./tvwidget.js";
+import { loadTradingView } from './tvwidget.js';
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadTradingView("tv-chart");
+window.addEventListener("DOMContentLoaded", () => {
+    loadTradingView("tv-chart", {
+        symbol: "BINANCE:BTCUSDT",
+        interval: "15",   // 15-min candles
+        theme: "dark"
+    });
 
 
     // =========================
