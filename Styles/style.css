@@ -18,6 +18,10 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 .logo {
     display: flex;
     justify-content: center;
@@ -858,10 +862,36 @@ span.description {
 
 /* STAKING PAGE STARTS HERE:....👇 */
 .stake-container {
+    position: fixed;
     margin: auto;
-    padding: 2px 10px;
+    padding: 40px 10px;
     visibility: hidden;
+    width: 100%;
+    /* max-width: 700px; */
     height: 0px;
+    background: #1e1e1eff;
+    background: #5025d1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.stake-exit-btn {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    margin: 0px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: clamp(16px, 0.5vw, 100px);
+    /* color: #292929; */
+    cursor: pointer;
+    z-index: 10000;
 }
 
 .stake-header {
