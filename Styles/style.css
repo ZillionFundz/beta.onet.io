@@ -864,7 +864,7 @@ span.description {
 .stake-container {
     position: fixed;
     margin: auto;
-    padding: 40px 10px;
+    padding: 60px 10px;
     visibility: hidden;
     width: 100%;
     /* max-width: 700px; */
@@ -880,7 +880,7 @@ span.description {
 
 .stake-exit-btn {
     position: absolute;
-    top: 10px;
+    top: 30px;
     left: 15px;
     margin: 0px;
     padding: 5px 10px;
