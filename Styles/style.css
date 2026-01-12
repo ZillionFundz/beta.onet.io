@@ -538,9 +538,9 @@ span.description {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
-    min-width: 120px;
+    min-width: 140px;
     border-radius: 10px;
-    padding: 10px 10px;
+    padding: 10px 0px;
     font-size: clamp(14px, 1vw, 100px);
     cursor: pointer;
     margin: 10px 0;
@@ -613,10 +613,6 @@ span.description {
 .hide {
     display: none;
 }
-
-/* #walletAddress {
-    color: #40d483;
-} */
 
 .portal-utilities {
     display: flex;
@@ -718,6 +714,148 @@ span.description {
 }
 
 
+.notification-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* height: 250px; */
+    width: 100%;
+    max-width: 325px;
+    background: #dce7f8;
+    margin: 0px;
+    padding: 5px 20px 25px;
+    border-radius: 10px 10px 10px 10px;
+    position: fixed;
+    transform: translate(-50%, -50%) scale(0.1);
+    transition: 0.3s, top 0.5s;
+    top: 35%;
+    left: 50%;
+    z-index: 2;
+    visibility: hidden;
+    box-shadow: 0px 0px 12px 4px rgba(18, 38, 63, 0.2);
+    text-align: center;
+    opacity: 0;
+}
+
+.notification-exit-btn {
+
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin: 0px;
+    padding: 5px;
+    background: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: clamp(16px, 0.5vw, 100px);
+    /* color: #292929; */
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.fa-stake-wallet-icon {
+    font-size: clamp(35px, 2vw, 100px);
+    color: #5025d1;
+    margin-bottom: 0px;
+    padding: 10px 0px 5px;
+}
+
+.notification-popup h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: clamp(18px, 0.5vw, 100px);
+    margin: 0px;
+    padding: 5px 5px 10px;
+    text-transform: capitalize;
+    /* text-align: center; */
+}
+
+.notification-narration-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    /* margin-bottom: 7px; */
+    /* border: 1px solid #333; */
+    border-radius: 5px;
+    box-shadow: 0px 1px 7px 3px rgba(74, 37, 209, 0.5);
+}
+
+.notification-narration {
+    font-size: clamp(12px, 1vw, 20px);
+    /* text-align: center; */
+    margin: 0px;
+    padding: 15px 2px;
+    /* background: red; */
+}
+
+.load-progress {
+    width: 100%;
+    height: 6px;
+    /* margin: auto; */
+    background: #e5e7eb;
+    /* light gray */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00ffa3, #00c2ff, #5025d1);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 8px rgba(80, 37, 209, 0.6);
+}
+
+
+.notification-hr {
+    margin: 10px 0px;
+    padding: 0px 0px;
+    width: 100%;
+}
+
+.notification-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-btn {
+    font-size: clamp(16px, 0.5vw, 100px);
+    padding: 10px 25px 10px;
+    border-radius: 10px 10px 10px 10px;
+    min-width: 100px;
+    border: none;
+    /* background: #545474; */
+    background: linear-gradient(#dce7f8, #5025d1);
+    color: #1b1b1b;
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.notification-btn:hover {
+    color: #fff;
+    background: linear-gradient(#5025d1, #dce7f8);
+}
+
+.notification-btn:active {
+    /* border: 1px solid #545474; */
+    background: #5025d1;
+    color: #d3d2d2;
+}
+
+
+.stake-narration {
+    font-size: clamp(12px, 1vw, 100px);
+    text-align: center;
+    width: 82%;
+    margin-bottom: 4px;
+}
+
+
 
 /* WALLET CONNECTION STARTS FROM HERE! 👇 */
 
@@ -729,8 +867,6 @@ span.description {
     z-index: 999999 !important;
     pointer-events: auto !important;
 }
-
-/* ...existing code... */
 
 
 
