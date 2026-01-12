@@ -6,8 +6,13 @@ const stakeContainer = document.getElementById("stake-container");
 const notificationExitBtn = document.getElementById("notification-exit-btn");
 const notificationPopup = document.getElementById("notification-popup");
 const stakeBtn = document.getElementById("stake-btn");
-const notificationStakeBtn = document.getElementById("notification-stake");
+const stakeExitBtn = document.getElementById("stake-exit-btn");
+const notificationCancelBtn = document.getElementById("notification-cancel-btn");
+const notificationProceedBtn = document.getElementById("notification-proceed-btn");
 
+
+// stakeContainer.style.visibility = 'hidden';
+// stakeContainer.style.height = '0px';
 let progress = 0;
 let loader = null;
 const progressBar = document.querySelector(".progress-bar");
@@ -24,9 +29,9 @@ stakeBtn.addEventListener('click', () => {
 // --------------------------
 // Handle staking action
 // --------------------------
-notificationStakeBtn.addEventListener('click', () => {
+notificationProceedBtn.addEventListener('click', () => {
     // Prevent double click
-    notificationStakeBtn.disabled = true;
+    notificationProceedBtn.disabled = true;
 
     startLoaderOnce();
 
@@ -49,9 +54,9 @@ notificationStakeBtn.addEventListener('click', () => {
         progressBar.style.width = "0%";
 
         // Re-enable button
-        notificationStakeBtn.disabled = false;
+        notificationProceedBtn.disabled = false;
 
-        alert("Staking Successful!");
+        OpenStakeWindow();
     }, duration);
 });
 
@@ -88,4 +93,52 @@ notificationExitBtn.addEventListener('click', () => {
     notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
     notificationPopup.style.visibility = 'hidden';
     notificationPopup.style.opacity = '0';
+
+    // Reset loader
+    clearInterval(loader);
+    loader = null;
+    progress = 0;
+    progressBar.style.width = "0%";
+
+    // Re-enable button
+    notificationProceedBtn.disabled = false;
+
+    alert("Staking Aborted!");
 });
+// ==========================================
+
+// --------------------------
+// Cancel Button UI
+// --------------------------
+notificationCancelBtn.addEventListener('click', () => {
+    // Close popup smoothly
+    notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
+    notificationPopup.style.visibility = 'hidden';
+    notificationPopup.style.opacity = '0';
+    // Reset loader
+    clearInterval(loader);
+    loader = null;
+    progress = 0;
+    progressBar.style.width = "0%";
+    // Re-enable button
+    notificationProceedBtn.disabled = false;
+    alert("Staking Cancelled!");
+});
+
+// --------------------------
+// Handle stake exit button
+// --------------------------
+stakeExitBtn.addEventListener('click', () => {
+    stakeContainer.style.visibility = 'hidden';
+    stakeContainer.style.height = '0px';
+    document.body.classList.remove('no-scroll');
+});
+
+// --------------------------
+// Open Stake Window
+// --------------------------
+function OpenStakeWindow() {
+    document.body.classList.add('no-scroll');
+    stakeContainer.style.visibility = 'visible';
+    stakeContainer.style.height = '100vh';
+}
