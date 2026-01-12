@@ -218,6 +218,31 @@
             </div>
         </div> -->
 
+        <!-- NOTIFICATION POPUP HERE:....👇 -->
+        <div id="notification-popup" class="notification-popup">
+            <button id="notification-exit-btn" class="notification-exit-btn"><i
+                    class="popup-icon fa-solid fa-xmark"></i></button>
+            <div class="wallet-icon-and-title">
+                <i class="fa-stake-wallet-icon fa-solid fa-wallet"></i>
+                <h3> Stake $ONET</h3>
+            </div>
+            <div class="notification-narration-box">
+                <span class="notification-narration">
+                    Stake your $ONET tokens securely and effortlessly through our user-friendly staking dashboard to
+                    enjoy competitive rewards while contributing to the network's security and decentralization.
+                </span>
+                <div class="load-progress">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+            <hr class="notification-hr">
+            <div class="notification-cta">
+                <button id="notification-cancel" class="notification-btn">Cancel</button>
+                <button id="notification-stake" class="notification-btn">Stake</button>
+            </div>
+
+        </div>
+
 
         <!-- WALLET CONNECTION STARTA HERE: 👇 -->
         <div class="web3-portal">
@@ -290,7 +315,7 @@
                             </div>
                             <div class="utility-box">
                                 <h4>staking</h4>
-                                <button><i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <button id="stake-btn"><i class="fa-solid fa-wand-magic-sparkles"></i>
                                     <hr class="separator">0
                                 </button>
                             </div>
@@ -301,6 +326,20 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- STAKING DASHBOARD HERE:....👇 -->
+        <div id="stake-container" class="stake-container">
+            <div class="stake-box">
+                <h3>Stake $ONET & Earn Passive Income</h3>
+                <span class="stake-narration">Stake your $ONET tokens securely and effortlessly through our
+                    user-friendly staking dashboard to enjoy competitive rewards while contributing to the network's
+                    security and decentralization.
+                </span>
+                <button id="openStakeDashboardBtn" class="stake-button"><i class="fa-solid fa-coins"></i>
+                    Open Staking Dashboard
+                </button>
+            </div>
         </div>
 
         <!-- TRADINGVIEW WIDGET DISPLAYS HERE:....👇 -->
@@ -456,6 +495,7 @@
 
     <!-- Your module script -->
     <script type="module" src="Scripts/wlt.js"></script>
+    <script type="module" src="Scripts/stk.js"></script>
     <script type="module" src="Scripts/main.js"></script>
 
 
