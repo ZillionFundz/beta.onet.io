@@ -22,7 +22,7 @@ const progressBar = document.querySelector(".progress-bar");
 // --------------------------
 stakeBtn.addEventListener('click', () => {
     notificationPopup.style.visibility = 'visible';
-    notificationPopup.style.top = '45%';
+    notificationPopup.style.top = '40%';
     notificationPopup.style.opacity = '1';
     notificationPopup.style.transform = "translate(-50%, -50%) scale(1)";
 });
