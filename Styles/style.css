@@ -1311,8 +1311,8 @@ a {
 }
 
 .feature img {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     margin: 0px;
     padding: 0px;
     margin-bottom: 15px;
@@ -1855,7 +1855,7 @@ a {
         align-items: center;
         flex-direction: column;
         margin: 2px;
-        padding: 20px 10px 10px;
+        padding: 10px 10px 10px;
         /* margin-bottom: 45px; */
         background: #fff;
         border-radius: 10px;
