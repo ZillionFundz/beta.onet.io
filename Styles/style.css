@@ -881,7 +881,6 @@ span.description {
     height: 0px;
     background: #1e1e1eff;
     background: #5025d1;
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
