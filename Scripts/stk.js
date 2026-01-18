@@ -94,6 +94,7 @@ notificationExitBtn.addEventListener('click', () => {
     notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
     notificationPopup.style.visibility = 'hidden';
     notificationPopup.style.opacity = '0';
+    document.body.classList.remove('no-scroll');
 
     // Reset loader
     clearInterval(loader);
@@ -116,6 +117,7 @@ notificationCancelBtn.addEventListener('click', () => {
     notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
     notificationPopup.style.visibility = 'hidden';
     notificationPopup.style.opacity = '0';
+    document.body.classList.remove('no-scroll');
     // Reset loader
     clearInterval(loader);
     loader = null;
