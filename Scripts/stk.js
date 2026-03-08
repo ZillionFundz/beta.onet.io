@@ -7,9 +7,12 @@ const notificationExitBtn = document.getElementById("notification-exit-btn");
 const notificationPopup = document.getElementById("notification-popup");
 const stakeBtn = document.getElementById("stake-btn");
 const stakeExitBtn = document.getElementById("stake-exit-btn");
-const notificationCancelBtn = document.getElementById("notification-cancel-btn");
-const notificationProceedBtn = document.getElementById("notification-proceed-btn");
-
+const notificationCancelBtn = document.getElementById(
+  "notification-cancel-btn",
+);
+const notificationProceedBtn = document.getElementById(
+  "notification-proceed-btn",
+);
 
 // stakeContainer.style.visibility = 'hidden';
 // stakeContainer.style.height = '0px';
@@ -20,128 +23,128 @@ const progressBar = document.querySelector(".progress-bar");
 // --------------------------
 // Show staking popup
 // --------------------------
-stakeBtn.addEventListener('click', () => {
-    notificationPopup.style.visibility = 'visible';
-    notificationPopup.style.top = '40%';
-    notificationPopup.style.opacity = '1';
-    notificationPopup.style.transform = "translate(-50%, -50%) scale(1)";
+stakeBtn.addEventListener("click", () => {
+  notificationPopup.style.visibility = "visible";
+  notificationPopup.style.top = "40%";
+  notificationPopup.style.opacity = "1";
+  notificationPopup.style.transform = "translate(-50%, -50%) scale(1)";
 });
 
 // --------------------------
 // Handle staking action
 // --------------------------
-notificationProceedBtn.addEventListener('click', () => {
-    // Prevent double click
-    notificationProceedBtn.disabled = true;
+notificationProceedBtn.addEventListener("click", () => {
+  // Prevent double click
+  notificationProceedBtn.disabled = true;
 
-    startLoaderOnce();
+  startLoaderOnce();
 
-    // Duration matches loader animation (5% every 250ms → 20 steps → 5000ms)
-    const duration = 270 * (100 / 5);
+  // Duration matches loader animation (5% every 250ms → 20 steps → 5000ms)
+  const duration = 270 * (100 / 5);
 
-    setTimeout(() => {
-        // Ensure progress bar is fully filled
-        progressBar.style.width = "100%";
+  setTimeout(() => {
+    // Ensure progress bar is fully filled
+    progressBar.style.width = "100%";
 
-        // Close popup smoothly
-        notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
-        notificationPopup.style.visibility = 'hidden';
-        notificationPopup.style.opacity = '0';
+    // Close popup smoothly
+    notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
+    notificationPopup.style.visibility = "hidden";
+    notificationPopup.style.opacity = "0";
 
-        // Reset loader
-        clearInterval(loader);
-        loader = null;
-        progress = 0;
-        progressBar.style.width = "0%";
+    // Reset loader
+    clearInterval(loader);
+    loader = null;
+    progress = 0;
+    progressBar.style.width = "0%";
 
-        // Re-enable button
-        notificationProceedBtn.disabled = false;
+    // Re-enable button
+    notificationProceedBtn.disabled = false;
 
-        OpenStakeWindow();
-    }, duration);
+    OpenStakeWindow();
+  }, duration);
 });
 
 // --------------------------
 // Start loader once
 // --------------------------
 function startLoaderOnce() {
-    if (loader) clearInterval(loader);
-    progress = 0;
-    progressBar.style.width = "0%";
-    startLoader();
+  if (loader) clearInterval(loader);
+  progress = 0;
+  progressBar.style.width = "0%";
+  startLoader();
 }
 
 // --------------------------
 // Loader function
 // --------------------------
 function startLoader() {
-    progress = 0;
-    progressBar.style.width = "0%";
+  progress = 0;
+  progressBar.style.width = "0%";
 
-    loader = setInterval(() => {
-        progress += 5;
-        progressBar.style.width = progress + "%";
+  loader = setInterval(() => {
+    progress += 5;
+    progressBar.style.width = progress + "%";
 
-        if (progress >= 100) {
-            clearInterval(loader);
-            loader = null;
-        }
-    }, 250);
+    if (progress >= 100) {
+      clearInterval(loader);
+      loader = null;
+    }
+  }, 250);
 }
 
-notificationExitBtn.addEventListener('click', () => {
-    // Close popup smoothly
-    notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
-    notificationPopup.style.visibility = 'hidden';
-    notificationPopup.style.opacity = '0';
-    document.body.classList.remove('no-scroll');
+notificationExitBtn.addEventListener("click", () => {
+  // Close popup smoothly
+  notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
+  notificationPopup.style.visibility = "hidden";
+  notificationPopup.style.opacity = "0";
+  document.body.classList.remove("no-scroll");
 
-    // Reset loader
-    clearInterval(loader);
-    loader = null;
-    progress = 0;
-    progressBar.style.width = "0%";
+  // Reset loader
+  clearInterval(loader);
+  loader = null;
+  progress = 0;
+  progressBar.style.width = "0%";
 
-    // Re-enable button
-    notificationProceedBtn.disabled = false;
+  // Re-enable button
+  notificationProceedBtn.disabled = false;
 
-    alert("Staking Aborted!");
+  alert("Staking Aborted!");
 });
 // ==========================================
 
 // --------------------------
 // Cancel Button UI
 // --------------------------
-notificationCancelBtn.addEventListener('click', () => {
-    // Close popup smoothly
-    notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
-    notificationPopup.style.visibility = 'hidden';
-    notificationPopup.style.opacity = '0';
-    document.body.classList.remove('no-scroll');
-    // Reset loader
-    clearInterval(loader);
-    loader = null;
-    progress = 0;
-    progressBar.style.width = "0%";
-    // Re-enable button
-    notificationProceedBtn.disabled = false;
-    alert("Staking Cancelled!");
+notificationCancelBtn.addEventListener("click", () => {
+  // Close popup smoothly
+  notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
+  notificationPopup.style.visibility = "hidden";
+  notificationPopup.style.opacity = "0";
+  document.body.classList.remove("no-scroll");
+  // Reset loader
+  clearInterval(loader);
+  loader = null;
+  progress = 0;
+  progressBar.style.width = "0%";
+  // Re-enable button
+  notificationProceedBtn.disabled = false;
+  alert("Staking Cancelled!");
 });
 
 // --------------------------
 // Handle stake exit button
 // --------------------------
-stakeExitBtn.addEventListener('click', () => {
-    stakeContainer.style.visibility = 'hidden';
-    stakeContainer.style.height = '0px';
-    document.body.classList.remove('no-scroll');
+stakeExitBtn.addEventListener("click", () => {
+  stakeContainer.classList.remove("open-stake");
+  stakeContainer.classList.add("close-stake");
+  document.body.classList.remove("no-scroll");
 });
 
 // --------------------------
 // Open Stake Window
 // --------------------------
 function OpenStakeWindow() {
-    document.body.classList.add('no-scroll');
-    stakeContainer.style.visibility = 'visible';
-    stakeContainer.style.height = '100vh';
+  document.body.classList.add("no-scroll");
+  stakeContainer.classList.remove("close-stake");
+  stakeContainer.classList.add("open-stake");
 }
