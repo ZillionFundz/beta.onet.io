@@ -1,608 +1,1939 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Onet.iO | Home</title>
-    <!-- TRADINGVIEW PRELOADS BELOW -->
-    <link rel="preload" href="https://s3.tradingview.com/tv.js" as="script" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <link rel="stylesheet" href="Styles/style.css" />
-    <!-- SWIPER LINK BELOW -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-  </head>
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
 
-  <body>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="Images/onetlogo.png" alt="" />
-        <h3>ONET</h3>
-      </div>
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  /* font-family: "Inter", sans-serif; */
+}
 
-      <!-- Sidebar -->
-      <ul id="sidebar" class="sidebar">
-        <div id="overlay" class="overlay"></div>
-        <li class="menuClose-button" id="hide-sidebar">
-          <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#1f1f1f"
-            >
-              <path
-                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-              />
-            </svg>
-          </a>
-        </li>
-        <hr id="menuClose-line" />
-        <li id="home"><a href="#">Home</a></li>
-        <li id="about"><a href="about.html">About</a></li>
-        <li id="contact"><a href="support.html">Support</a></li>
-        <li id="utilities"><a href="#utilities">Utilities</a></li>
-        <li id="whitepaper">
-          <a href="onetwhitepaper.pdf" target="_blank">Whitepaper</a>
-        </li>
-      </ul>
+body {
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: "Inter", sans-serif;
+}
 
-      <ul>
-        <!-- Main Navigation -->
-        <li class="hideOnMobile" id="home"><a href="#">Home</a></li>
-        <li class="hideOnMobile" id="about"><a href="about.html">About</a></li>
-        <li class="hideOnMobile" id="contact">
-          <a href="support.html">Support</a>
-        </li>
-        <li class="hideOnMobile" id="utilities">
-          <a href="utilities.html">Utilities</a>
-        </li>
-        <li class="menuOpen-button" id="showSidebar">
-          <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#1f1f1f"
-            >
-              <path
-                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
-              />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div class="container">
-      <div id="bgimg" class="wrapper1 bgimg">
-        <div class="section-top">
-          <h1 id="welcome-txt">Welcome to Open Network Technology <br /></h1>
-          <span class="naration"
-            ><em
-              >A web3 gateway into decentralised ecosystem, where innovations
-              and tech meet differently. <br />
-              We are constantly building with innovations. Stay strategically
-              connected with us.</em
-            >
-          </span>
-          <div class="cta-box">
-            <button type="button" id="products" class="cta-button">
-              <a href="#explorer">products</a>
-            </button>
-            <button type="button" id="services" class="cta-button">
-              <a href="../OnetUpskill/index.html">services</a>
-            </button>
-          </div>
-        </div>
-        <div class="widget-and-giggest-logo">
-          <img
-            class="onet-biggest-logo"
-            src="Images/onetlogo.png"
-            title="What if 1 $ONE = $6"
-            alt="Banner in landing page"
-          />
-          <!-- TRADINGVIEW WIDGET SHOT MAY BE HERE -->
-        </div>
-      </div>
+.no-scroll {
+  overflow: hidden;
+}
 
-      <!-- {include file="adcards.html"} -->
-      <div class="explorer-notes">
-        <div id="explorer" class="explorer">
-          <h1>Explore Our Core Innovations</h1>
-          <span class="subheading"
-            >Training, Empowering, and Connecting the global community of users
-            throuhg $ONE ecosystem Technology.
-          </span>
-        </div>
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
 
-        <!-- INNOVATIONS CARDS START HERE...! -->
+.logo h3 {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  font-size: clamp(20px, 3vw, 100px);
+  margin: 0px;
+  padding: 0px;
+}
 
-        <div id="slide-container" class="slide-container swiper">
-          <!--EVERYTHING -->
-          <div class="wrapper">
-            <div class="swiper-wrapper">
-              <!--EACH-CARD-1 -->
-              <div class="card-wrapper swiper-slide">
-                <div class="card-image">
-                  <img src="Images/web3-baner.png" alt="web3 technologies" />
-                  <span class="overlay-tagname"> Web3 </span>
-                </div>
-                <div class="card-content-section">
-                  <h3 class="card-title">Knowledge-Base & Value Growth</h3>
-                  <span class="description">
-                    We connect users, train and empower the global community
-                    while maintaining security through one ecosystem technology,
-                    so to support self development through our Web3 skill-set
-                    offerings within and outside ONET Ecosystem. You can
-                    Strategically connect with our ecosystem to position for
-                    many opportunities as we keep building value.
-                  </span>
-                  <div class="user-panel">
-                    <div class="user-profile">
-                      <img
-                        src="Images/Profile-Pix.jpg"
-                        alt=""
-                        class="profile-image"
-                      />
-                      <span class="user-details">
-                        <h4>Chris Anyichukwu</h4>
-                        <span class="user-office">
-                          <em>Web3 Instructor</em>
-                        </span>
-                      </span>
-                    </div>
-                    <div class="readmore">
-                      <a href="https://zillionfundz.github.io/profilecard/"
-                        >Learn More:</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--EACH-CARD-2 -->
-              <div class="card-wrapper swiper-slide">
-                <div class="card-image">
-                  <img src="Images/tech-baner.png" alt="web3 technologies" />
-                  <span class="overlay-tagname"> Technology </span>
-                </div>
-                <div class="card-content-section">
-                  <h3 class="card-title">Mobile Apps and Web Technologies</h3>
-                  <span class="description">
-                    Connecting with us throuhg our Open Network technology, you
-                    could affordably purchase any of our tehnology products or
-                    pay for any of the services that we offer. We build Websites
-                    and develop V.B. desktop applications. Our mobile apps
-                    development service is coming "very" soon. Stay active and
-                    be in touch with us.
-                  </span>
-                  <div class="user-panel">
-                    <div class="user-profile">
-                      <img
-                        src="Images/Profile-Pix.jpg"
-                        alt=""
-                        class="profile-image"
-                      />
-                      <span class="user-details">
-                        <h4>Chris Anyichukwu</h4>
-                        <span class="user-office">
-                          <em>Web. Developer</em>
-                        </span>
-                      </span>
-                    </div>
-                    <div class="readmore">
-                      <a href="https://zillionfundz.github.io/profilecard/"
-                        >Learn More:</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--EACH-CARD-3 -->
-              <div class="card-wrapper swiper-slide">
-                <div class="card-image">
-                  <img src="Images/vrgame-baner.png" alt="web3 technologies" />
-                  <span class="overlay-tagname"> Entertainments </span>
-                </div>
-                <div class="card-content-section">
-                  <h3 class="card-title">
-                    Crypto Updates, Celebrity Gists & Gaming
-                  </h3>
-                  <span class="description">
-                    Have you ever wondered how entertainments could be utilised
-                    for income earnings? Herein, we offer a lot of entertaining
-                    utilities that users could leverage on and utilise, not only
-                    to deriving pleasure from them but also, to paasively earn
-                    seamlessly alongside having fun. (The Decentralised
-                    Entertainments).
-                  </span>
-                  <div class="user-panel">
-                    <div class="user-profile">
-                      <img
-                        src="Images/Profile-Pix.jpg"
-                        alt=""
-                        class="profile-image"
-                      />
-                      <span class="user-details">
-                        <h4>ZillionFundz</h4>
-                        <span class="user-office">
-                          <em>Entertainer</em>
-                        </span>
-                      </span>
-                    </div>
-                    <div class="readmore">
-                      <a href="https://zillionfundz.github.io/profilecard/"
-                        >Learn More:</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+.logo img {
+  width: 70px;
+  margin: 0px;
+  padding: 0px;
+  /* margin-left: 20px; */
+}
 
-          <!-- FOR PAGINATIONS -->
-          <!-- <div class="swiper-pagination"></div> -->
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0166ff;
+  /* background: #5025d1; */
+  /* background-color: rgb(98, 54, 231); */
+  border-bottom: 4px solid #5025d1;
+  /* border-bottom: 8px solid #0166ff; */
+  /* border-bottom: 8px solid rgb(98, 54, 231); */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  padding: 10px 20px;
+  z-index: 0;
+}
 
-          <!-- If we need navigation buttons -->
-          <!-- <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div> -->
-        </div>
-      </div>
-      <!-- <div class="ads">
-            <div class="adcard" id="adcard">
-                <img src="Images/banner1.jpg" alt="">
-            </div>
-            <div class="adcard" id="adcard">
-                <img src="Images/banner2.jpg" alt="">
-            </div>
-            <div class="adcard" id="adcard">
-                <img src="Images/banner3.jpg" alt="">
-            </div>
-            <div class="adcard" id="adcard">
-                <img src="Images/banner4.jpg" alt="">
-            </div>
-            <div class="adcard" id="adcard">
-                <img src="Images/banner5.jpg" alt="">
-            </div>
-        </div> -->
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 2px; */
+  margin: 0px;
+  padding: 0;
+}
 
-      <!-- STAKE NOTIFICATION POPUP HERE:....👇 -->
-      <div id="notification-popup" class="notification-popup">
-        <button id="notification-exit-btn" class="notification-exit-btn">
-          <i class="popup-icon fa-solid fa-xmark"></i>
-        </button>
-        <div class="wallet-icon-and-title">
-          <i class="fa-stake-wallet-icon fa-solid fa-wallet"></i>
-          <h3>Stake $ONET</h3>
-        </div>
-        <div class="notification-narration-box">
-          <span class="notification-narration">
-            Stake your $ONET tokens securely and effortlessly through our
-            user-friendly staking dashboard to enjoy competitive rewards while
-            contributing to the network's security and decentralization.
-          </span>
-          <div class="load-progress">
-            <div class="progress-bar"></div>
-          </div>
-        </div>
-        <hr class="notification-hr" />
-        <div class="notification-cta">
-          <button id="notification-cancel-btn" class="notification-btn">
-            Cancel
-          </button>
-          <button id="notification-proceed-btn" class="notification-btn">
-            Proceed
-          </button>
-        </div>
-      </div>
+.navbar ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  width: 14vw;
+  height: 40px;
+  /* background: #5025D1; */
+  background: #b7b7c4;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 24px 10px;
+  text-align: center;
+  outline: 0.5px solid#000;
+}
 
-      <!-- WALLET CONNECTION STARTA HERE: 👇 -->
-      <div class="web3-portal">
-        <h3>ONET Web3 portal</h3>
-        <span class="portal-narration"
-          >interact with onet DApps & ecosystem utilities to position for
-          passive income earnings.
-        </span>
-        <div class="market-place">
-          <div class="portal-control-panel">
-            <div class="portal-controls">
-              <div class="wallet-btns wallet-ui">
-                <button id="connectWalletBtn" class="portal-control-btn">
-                  <i class="fa-solid fa-wallet"></i>
-                  Connect Wallet
-                </button>
-              </div>
-              <div class="dex-box">
-                <a href="https://tinyurl.com/3n572pmz" target="_blank">
-                  <button id="openDexBtn" class="portal-control-btn">
-                    <i class="fa-solid fa-money-bill-trend-up"></i>
-                    Trade Cryptos
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="wallet-box">
-            <span>Wallet address:</span>
-            <div class="connect-and-disconnect">
-              <span id="walletAddress" class="walletAddress"></span>
-              <button
-                id="disconnect-wallet-btn"
-                class="disconnect-wallet-btn hide"
-              >
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              </button>
-            </div>
-          </div>
-          <div class="portal-utilities">
-            <span id="utilities">Utilities</span>
-            <div class="utility-area">
-              <div class="utility-group">
-                <div class="utility-box">
-                  <h4>DApps</h4>
-                  <button class="utility-btn">
-                    <i class="fa-solid fa-road-circle-check"></i>
-                    <hr class="separator" />
-                    3
-                  </button>
-                </div>
-                <div class="utility-box">
-                  <h4>Ads</h4>
-                  <button class="utility-btn">
-                    <i class="fa-solid fa-rectangle-ad"></i>
-                    <hr class="separator" />
-                    0
-                  </button>
-                </div>
-                <div class="utility-box">
-                  <h4>Socials</h4>
-                  <button class="utility-btn">
-                    <i class="fa-solid fa-comments"></i>
-                    <hr class="separator" />
-                    1,870
-                  </button>
-                </div>
-              </div>
-              <div class="utility-group">
-                <div class="utility-box">
-                  <h4>Mining</h4>
-                  <button class="utility-btn">
-                    <i class="fa-solid fa-person-digging"></i>
-                    <hr class="separator" />
-                    0
-                  </button>
-                </div>
-                <div class="utility-box">
-                  <h4>Onetors</h4>
-                  <button class="utility-btn">
-                    <i class="fa-solid fa-circle-user"></i>
-                    <hr class="separator" />
-                    10
-                  </button>
-                </div>
-                <div class="utility-box">
-                  <h4>staking</h4>
-                  <button id="stake-btn" class="utility-btn">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <hr class="separator" />
-                    0
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+.navbar ul li:hover {
+  background: #a2a5ac;
+  border-radius: 8px;
+  /* margin: 2px; */
+  outline: 0.1rem dotted #000000;
+}
 
-      <!-- STAKING DASHBOARD HERE:....👇 -->
-      <div id="stake-container" class="stake-container">
-        <button id="stake-exit-btn" class="stake-exit-btn">
-          <i class="popup-icon fa-solid fa-arrow-left"></i>
-        </button>
-        <div class="stake-header">
-          <div class="account-details">
-            <div class="wallet-profile">
-              <i class="fa-profile-icon fa-solid fa-circle-user"></i>
-            </div>
-            <div class="wallet-details">
-              <h3>Wallet 1</h3>
-              <span class="short-wallet-address">0xC9f9...C687</span>
-            </div>
-          </div>
-          <button id="stake-history-btn" class="stake-history-btn">
-            View History<i class="fa-default-icon fa-solid fa-chevron-down"></i>
-          </button>
-        </div>
-        <div class="stake-box"></div>
-      </div>
+.navbar ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 35px;
+  color: #000;
+}
 
-      <!-- TRADINGVIEW WIDGET DISPLAYS HERE:....👇 -->
-      <div class="tv-box">
-        <div id="tv-chart" class="tv-chart" style="width: 100%"></div>
-      </div>
+ul li a:hover {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #d3e7fb;
+}
 
-      <div class="wrapper2">
-        <div class="unique-features" id="unique-features">
-          <div class="unique-intro">
-            <h2>Why Chose Us?</h2>
-            <p>
-              <strong>Open Network Technology</strong> brings to live, the
-              possibilities to connect Web3 together with Humanity, Technology
-              and Entertainments into a unified whole ecosystem.
-            </p>
-          </div>
-          <div class="why-choseus">
-            <!-- <div class="feature-group"> -->
-            <div class="feature-border-design">
-              <div class="feature" id="feature3">
-                <!-- QUOTA-1 -->
-                <img src="Images/quota3.jpg" alt="" />
-                <h3>Community-First Approach</h3>
-                <span class="reason">
-                  We empower individuals and businesses through our open network
-                  ecosystem and education.
-                </span>
-              </div>
-            </div>
-            <div class="feature-border-design">
-              <div class="feature" id="feature1">
-                <!-- QUOTA-2 -->
-                <img src="Images/OnetLogo1.png" alt="" />
-                <h3>Expert-Led Teams</h3>
-                <span class="reason">
-                  Our skilled teams provide consultancy & training services,
-                  with tailored tech solutions to ONET users and the global
-                  communities.
-                </span>
-              </div>
-            </div>
-            <!-- <div class="feature-group"> -->
-            <!-- </div> -->
-            <div class="feature-border-design">
-              <div class="feature" id="feature2">
-                <!-- QUOTA-3 -->
-                <img src="Images/quota7.jpg" alt="" />
-                <h3>Web3-Tech Solutions</h3>
-                <span class="reason">
-                  We design, develop and deliver cutting-edge blockchain
-                  technologies for decentralisation and privacy solutions.
-                </span>
-              </div>
-            </div>
-            <div class="feature-border-design">
-              <div class="feature" id="feature4">
-                <!-- QUOTA-4 -->
-                <img src="Images/quota5.jpg" alt="" />
-                <h3>Trusted & Future-Ready</h3>
-                <span class="reason">
-                  With a focus on security, scalability, and decentralisation,
-                  we build for tomorrow's technology.
-                </span>
-              </div>
-            </div>
+.navbar .menuOpen-button {
+  display: none;
+}
 
-            <!-- </div> -->
-          </div>
-        </div>
-      </div>
+.homevid {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
 
-      <!-- TESTIMONIALS STARTS HERE -->
-      <section class="testimonials">
-        <div class="testimonial-heading">
-          <h2>What Our Users Say</h2>
-          <span class="media"> across social media </span>
-        </div>
-        <div class="swiper testimonials-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide testimonial-card">
-              <div class="testimonial-container">
-                <div class="testimonial-details">
-                  <img
-                    src="Images/Profile-Pix0001.jpg"
-                    alt=""
-                    class="profile-image"
-                  />
-                  <p class="testimonial-text">
-                    "So glad to be an ONETOR. Keep Building, I love this
-                    project!😍"
-                  </p>
-                  <span class="testimonial-user">X: — @Oceanicfunds</span>
-                </div>
-                <div class="shot">
-                  <img src="Images/shot1.jpg" alt="" class="shot-image" />
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide testimonial-card">
-              <div class="testimonial-container">
-                <div class="testimonial-details">
-                  <img
-                    src="Images/Profile-Pix0002.jpg"
-                    alt=""
-                    class="profile-image"
-                  />
-                  <p class="testimonial-text">
-                    "Excellent support & great tech team. I Love ONET for
-                    real!💯"
-                  </p>
-                  <span class="testimonial-user">X: — @Julichyma</span>
-                </div>
-                <div class="shot">
-                  <img src="Images/shot2.jpg" alt="" class="shot-image" />
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide testimonial-card">
-              <div class="testimonial-container">
-                <div class="testimonial-details">
-                  <img
-                    src="Images/Profile-Pix0003.jpg"
-                    alt=""
-                    class="profile-image"
-                  />
-                  <p class="testimonial-text">
-                    "ONET UI & UX are seamless. Great Project indeed!👍"
-                  </p>
-                  <span class="testimonial-user">X: — @ZillionFundz</span>
-                </div>
-                <div class="shot">
-                  <img src="Images/shot3.jpg" alt="" class="shot-image" />
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide testimonial-card">
-              <div class="testimonial-container">
-                <div class="testimonial-details">
-                  <img
-                    src="Images/Profile-Pix0004.jpg"
-                    alt=""
-                    class="profile-image"
-                  />
-                  <p class="testimonial-text">
-                    "Leading to a decentralised future. Lets shape ONET
-                    together!💥"
-                  </p>
-                  <span class="testimonial-user">X: — @Julichyma</span>
-                </div>
-                <div class="shot">
-                  <img src="Images/shot4.jpg" alt="" class="shot-image" />
-                </div>
-              </div>
-            </div>
-            <!-- Add more .swiper-slide testimonial-cards as needed -->
-          </div>
-          <!-- Swiper Pagination -->
-          <div class="swiper-pagination"></div>
-          <!-- Swiper Navigation -->
-          <!-- <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div> -->
-        </div>
-      </section>
-      <!-- ...existing code... -->
-      <div class="read-more">
-        <p>Welcome to The Open Network Technology!</p>
-      </div>
-    </div>
+.navbar .sidebar {
+  /* width: 50vw; */
+  display: none;
+}
 
-    <!--<div>
-        <video autoplay loop muted plays-inline class="homevid">
-            <source src="Images/homevid.mp4" type="video/mp4">
-        </video>
-    </div>-->
+.sidebar {
+  position: relative;
+  position: fixed;
+  padding: 10px 20px;
+  /* top: -10; */
+  bottom: 0;
+  right: 0;
 
-    <!-- SWIPER SCRIPT -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  width: 40vw;
+  height: 8vh;
+  margin: 2px 10px;
 
-    <!-- Your module script -->
-    <script type="module" src="Scripts/wlt.js"></script>
-    <script type="module" src="Scripts/stk.js"></script>
-    <script type="module" src="Scripts/main.js"></script>
-  </body>
-</html>
+  backdrop-filter: blur(10px);
+  /* width: 20vw; */
+  height: 100vh;
+  z-index: 10000;
+  /* background: rgba(1, 103, 255, 0.465); */
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.231);
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: none;
+  flex-direction: column;
+  list-style: none;
+  outline: 2px dashed #000;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+  transform: translate(-100%);
+  background: rgba(180, 180, 180, 0.5);
+  /* display: none; */
+}
+
+.navbar .sidebar li {
+  width: 200px;
+  background: #5025d1;
+  height: 8vh;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .homevid {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .homevid {
+    width: auto;
+    height: 100%;
+  }
+}
+
+.container {
+  margin: auto;
+  padding: 0px;
+  /* background: linear-gradient(#0456ee, #283a6a, #0456ee); */
+  background: #e2e4e4;
+  /* width: 100%; */
+  /* overflow: hidden; */
+}
+
+.wrapper1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  /* flex-wrap: wrap; */
+  /* overflow: hidden; */
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  background-image: linear-gradient(180deg, #e5e5e6, 50%, #9aa6b8 100%);
+  padding: 20px 5%;
+  z-index: 1;
+}
+
+.wrapper1 img {
+  width: 42%;
+  border-radius: 20px;
+}
+
+.bgimg {
+  position: relative;
+}
+
+.bgimg::before {
+  content: "";
+  position: absolute;
+  background: #000;
+  background-image: url("../Images/Tech-Company2.jpg");
+  /* max-width: 100%;
+    height: auto; */
+  min-width: 100%;
+  height: auto;
+  background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: translate(50% 50%);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.explorer-notes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px;
+  padding: 10px 15px 2px;
+  margin-top: 20px;
+  font-size: clamp(16px, 2vw, 100px);
+  text-align: justify;
+}
+
+.explorer-notes h1 {
+  font-size: clamp(18px, 3.2vw, 100px);
+  margin: 2px 0px;
+  text-align: center;
+  padding: 10px 2px 2px;
+  line-height: 25px;
+  text-transform: uppercase;
+}
+
+.explorer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+  flex-direction: column;
+}
+
+.explorer span {
+  text-align: center;
+  max-width: 90vw;
+  font-size: clamp(12px, 1.5vw, 100px);
+  margin: 0px;
+  padding: 2px 15px 5px;
+}
+
+/* SLIDING CARDS STARTS FROM HERE: */
+.slide-container {
+  /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    width: 95vw;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 35px; */
+
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+  /* optional */
+  overflow: hidden;
+}
+
+.swiper {
+  margin-bottom: 10px;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* gap: 0px; */
+  width: 75vw;
+  height: auto;
+  background: linear-gradient(180deg, #dadcdf, #5025d1);
+  /* background: #5025d1; */
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card-wrapper:hover {
+  transform: translateY(10px);
+}
+
+.card-image img {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 5px 5px 0px 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.card-image {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+}
+
+span.overlay-tagname {
+  position: absolute;
+  /* transform: translate(-50%, -50%); */
+  top: 0;
+  left: 0;
+  z-index: 0;
+  /* width: 100px; */
+  /* height: 30px; */
+  text-align: center;
+  margin: 10px;
+  padding: 3px 14px;
+  background: #fff;
+  color: #000;
+  outline: dashed 1px #000;
+  border-radius: 5px;
+  font-size: clamp(12px, 1.5vw, 100px);
+  font-weight: bold;
+}
+
+.card-content-section {
+  max-width: 100%;
+  font-size: clamp(14px, 2vw, 100px);
+  /* background: #5025d1; */
+  /* background: linear-gradient(360deg, #dadcdf, #5025d1); */
+  border-radius: 0px 0px 5px 5px;
+  /* text-align: center; */
+  margin: 0px;
+  padding: 15px;
+  position: relative;
+  z-index: 0;
+}
+
+.card-content-section::before {
+  content: "";
+  background: linear-gradient(360deg, #dadcdf, #5025d1);
+  border-radius: 0px 0px 5px 5px;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin: 0px;
+  /* opacity: 0.5; */
+  transform: translate(-50% -50%);
+  z-index: -1;
+}
+
+h3.card-title {
+  font-size: clamp(14px, 2vw, 100px);
+  text-align: center;
+  margin: 4px 0px;
+  margin-bottom: 15px;
+}
+
+span.description {
+  font-size: clamp(12px, 1vw, 100px);
+  line-height: 10px;
+  color: #fff;
+}
+
+.user-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+  /* background: #6030ee; */
+  border-radius: 5px;
+  padding: 10px 5px;
+  /* box-shadow: -10px 0 10px rgba(0, 0, 0, 0.231); */
+}
+
+.user-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+
+.user-profile img {
+  min-width: 20%;
+  max-width: 25px;
+  height: 20%;
+  padding: 1px;
+  border-radius: 30%;
+  border: 0.1px solid #000;
+  outline: 1px dotted #000;
+  offset: 5px;
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.5);
+}
+
+.user-details {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  flex-direction: column;
+  /* gap: 2px; */
+  width: 32vw;
+  text-align: left;
+}
+
+.user-details h4 {
+  margin: 0px;
+  padding: 0px;
+  font-size: clamp(12px, 2vw, 100px);
+}
+
+.user-office {
+  font-size: clamp(12px, 2vw, 100px);
+  margin: 0px;
+  padding: 0px;
+  /* color: #80b3ff; */
+  color: #0166ff;
+}
+
+.readmore {
+  width: 100px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 7px;
+  background: #0166ff;
+  padding: 7px 2px;
+  /* outline: 1px dashed #000; */
+  font-size: clamp(14px, 1vw, 100px);
+  transition: all 0.3s ease;
+}
+
+.readmore a {
+  text-decoration: none;
+  color: #fff;
+  padding: 7px;
+}
+
+.readmore a:hover {
+  color: #000;
+}
+
+.readmore:hover {
+  /* padding: 5px; */
+  background: #a2a5ac;
+  background-image: linear-gradient(135deg, #5025d1, 30%, #0166ff);
+  transform: translateY(-3px);
+}
+
+.ads {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.ads img {
+  width: 100%;
+}
+
+.web3-portal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+  padding: 2px 15px 25px;
+}
+
+.web3-portal h3 {
+  font-size: clamp(16px, 2vw, 100px);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.portal-narration {
+  font-size: clamp(11px, 1vw, 100px);
+  text-align: center;
+  width: 82%;
+  margin-bottom: 4px;
+}
+
+.market-place {
+  /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+  width: 100%;
+  margin: auto;
+  padding: 2px 5px 5px;
+  border: 1px dotted #545474;
+  background: rgb(220, 231, 248);
+  border-radius: 10px;
+}
+
+.portal-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.portal-control-btn {
+  background: #5025d1;
+  /* background: linear-gradient(#5025d1, #dce7f8); */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  min-width: 140px;
+  border-radius: 10px;
+  padding: 10px 0px;
+  font-size: clamp(14px, 1vw, 100px);
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.portal-control-btn:hover {
+  /* background: #5025D1; */
+  background: linear-gradient(#5025d1, #dce7f8);
+  color: #dddddd;
+  padding: 9px 9px;
+}
+
+.portal-control-btn:active {
+  background: #9ca2a5;
+  color: #44fa96;
+  border-bottom: 2px solid #1bfa7f;
+}
+
+.wallet-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.wallet-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(12px, 2vw, 100px);
+  /* left: 0; */
+  padding: 2px 0px 2px 10px;
+  background: #cfdeeb;
+  border-radius: 2px;
+}
+
+.walletAddress {
+  font-size: clamp(12px, 1.5vw, 100px);
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.connect-and-disconnect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.connect-and-disconnect .fa-disconnect {
+  font-size: clamp(14px, 1.5vw, 100px);
+  color: #fff;
+}
+
+.disconnect-wallet-btn {
+  background: #ff4d4d;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: clamp(10px, 1vw, 100px);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0px;
+  padding: 5px 5px;
+}
+
+.hide {
+  display: none;
+}
+
+.portal-utilities {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #333;
+  margin: 10px 0px 0px;
+  padding: 2px 0px 5px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.portal-utilities span {
+  font-size: clamp(14px, 2vw, 100px);
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0px 0px 5px;
+}
+
+.utility-area {
+  display: flex;
+  /* grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0px 2px;
+  gap: 5px;
+}
+
+.utility-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.utility-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px;
+  padding: 10px 5px;
+  /* border: 0.1px dashed #333; */
+  background: #cad9e9;
+  border-radius: 10px;
+  width: 25vw;
+  max-width: 100%;
+  gap: 5px;
+  /* box-shadow: 0px 0px 7px 2px rgba(51, 51, 51, 0.1); */
+}
+
+.utility-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-width: 65px;
+  background: #0166ff;
+  color: #dadcdf;
+  border-radius: 5px;
+  margin: 0px;
+  padding: 3px 5px;
+  font-size: clamp(12px, 1vw, 100px);
+}
+
+.utility-btn:hover {
+  background: #000;
+  background: #5025d1;
+}
+
+.utility-btn:active {
+  background: #5025d1;
+  background: #000;
+}
+
+.utility-box h4 {
+  font-size: clamp(12px, 1vw, 100px);
+  text-align: center;
+}
+
+.separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid #ad9ae9; */
+  border: 1px solid #6995e6;
+  margin: 0px 5px;
+  height: 18px;
+}
+
+.fa-solid {
+  font-size: clamp(16px, 2vw, 100px);
+  /* color: #bbbfc2; */
+  color: #e3e3e4;
+  margin-right: 2px;
+}
+
+.portal-control-panel {
+  /* display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column; */
+  margin: auto;
+}
+
+.notification-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* height: 250px; */
+  width: 100%;
+  max-width: 325px;
+  background: #dce7f8;
+  margin: 0px;
+  padding: 5px 20px 25px;
+  border-radius: 10px 10px 10px 10px;
+  position: fixed;
+  transform: translate(-50%, -50%) scale(0.1);
+  transition:
+    0.3s,
+    top 0.5s;
+  top: 35%;
+  left: 50%;
+  z-index: 2;
+  visibility: hidden;
+  box-shadow: 0px 0px 12px 4px rgba(18, 38, 63, 0.5);
+  text-align: center;
+  opacity: 0;
+}
+
+.notification-exit-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  margin: 0px;
+  padding: 5px;
+  background: #000;
+  border: none;
+  border-radius: 5px;
+  font-size: clamp(16px, 0.5vw, 100px);
+  /* color: #292929; */
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.fa-stake-wallet-icon {
+  font-size: clamp(35px, 2vw, 100px);
+  color: #5025d1;
+  margin-bottom: 0px;
+  padding: 10px 0px 5px;
+}
+
+.notification-popup h3 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: clamp(18px, 0.5vw, 100px);
+  margin: 0px;
+  padding: 5px 5px 10px;
+  text-transform: capitalize;
+  /* text-align: center; */
+}
+
+.notification-narration-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  /* margin-bottom: 7px; */
+  /* border: 1px solid #333; */
+  border-radius: 5px;
+  box-shadow: 0px 1px 7px 3px rgba(74, 37, 209, 0.5);
+}
+
+.notification-narration {
+  font-size: clamp(12px, 1vw, 20px);
+  /* text-align: center; */
+  margin: 0px;
+  padding: 15px 2px;
+  /* background: red; */
+}
+
+.load-progress {
+  width: 100%;
+  height: 6px;
+  /* margin: auto; */
+  background: #e5e7eb;
+  /* light gray */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 0px 10px 10px 0px;
+  background: linear-gradient(90deg, #00ffa3, #00c2ff, #5025d1);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(80, 37, 209, 0.6);
+}
+
+.notification-hr {
+  margin: 10px 0px;
+  padding: 0px 0px;
+  width: 100%;
+}
+
+.notification-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.notification-btn {
+  font-size: clamp(16px, 0.5vw, 100px);
+  padding: 10px 25px 10px;
+  border-radius: 10px 10px 10px 10px;
+  min-width: 100px;
+  border: none;
+  /* background: #545474; */
+  background: linear-gradient(#dce7f8, #5025d1);
+  color: #1b1b1b;
+  box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.notification-btn:hover {
+  color: #fff;
+  background: linear-gradient(#5025d1, #dce7f8);
+}
+
+.notification-btn:active {
+  /* border: 1px solid #545474; */
+  background: #5025d1;
+  color: #d3d2d2;
+}
+
+.stake-narration {
+  font-size: clamp(12px, 1vw, 100px);
+  text-align: center;
+  width: 82%;
+  margin-bottom: 4px;
+}
+
+/* STAKING PAGE STARTS HERE:....👇 */
+.stake-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  margin: auto;
+  padding: 60px 10px;
+  /* visibility: hidden; */
+  width: 100%;
+  /* max-width: 700px; */
+  height: 0px;
+  background: #1e1e1eff;
+  background: #5025d1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.open-stake {
+  display: flex;
+}
+
+.close-stake {
+  display: flex;
+}
+
+.stake-exit-btn {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  margin: 0px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #000;
+  border: none;
+  border-radius: 5px;
+  font-size: clamp(16px, 0.5vw, 100px);
+  /* color: #292929; */
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.stake-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  padding: 10px 15px;
+}
+
+.wallet-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(16px, 1vw, 20px);
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  margin: 0px;
+}
+
+.fa-default-icon {
+  font-size: clamp(16px, 1.5vw, 20px);
+  padding: 0px 5px;
+  color: #333;
+}
+
+.fa-profile-icon {
+  font-size: clamp(40px, 1.5vw, 20px);
+  color: #333;
+}
+
+.stake-history-btn {
+  font-size: clamp(14px, 0.5vw, 100px);
+  margin: 0px;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(#dce7f8, #5025d1);
+  color: #000;
+  box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.stake-history-btn:hover {
+  background: linear-gradient(#5025d1, #dce7f8);
+  color: #fff;
+}
+
+.account-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.wallet-details {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wallet-details h3 {
+  font-size: clamp(16px, 1vw, 20px);
+  margin: 0px;
+  padding: 0px;
+}
+
+.short-wallet-address {
+  font-size: clamp(12px, 1vw, 20px);
+  margin: 0px;
+  padding: 0px;
+}
+
+/* WALLET CONNECTION STARTS FROM HERE! 👇 */
+
+/* ensure Web3Modal is on top and clickable */
+.web3modal-overlay,
+.web3modal-modal,
+.web3modal-modal-card,
+.web3modal-provider-wrapper {
+  z-index: 999999 !important;
+  pointer-events: auto !important;
+}
+
+.wrapper2 {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+  /* overflow: hidden; */
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  /* background-image: linear-gradient(360deg, #e5e5e6, 50%, #9aa6b8 100%); */
+  background-image: linear-gradient(360deg, #e5e5e6, 50%, #ad9ae9 100%);
+  padding: 10px 15px;
+}
+
+.ads img {
+  width: 42%;
+  border-radius: 20px;
+}
+
+.banner p {
+  font-size: clamp(15px, 2vw, 100px);
+  text-align: justify;
+}
+
+.section-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 55vw;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-size: clamp(25px, 2vw, 100px);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section-top h1 {
+  font-size: clamp(45px, 4vw, 100px);
+  margin: 0px;
+  padding-bottom: 10px;
+  line-height: 70px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.section-top span {
+  font-size: clamp(25px, 2vw, 80px);
+  margin: 20px 0px;
+  padding: 2px;
+  text-align: center;
+}
+
+.cta-box {
+  max-width: 45vw;
+  /* max-height: 8.5vh; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  padding: 5px 10px;
+  gap: 4px;
+  /* background: red; */
+}
+
+.cta-button {
+  font-size: clamp(25px, 3vw, 100px);
+  /* font-weight: bold; */
+  width: 65vw;
+  height: auto;
+  border-radius: 25px;
+  margin: 0px;
+  padding: 15px 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+
+.cta-box #products {
+  background: #5025d1;
+}
+
+.cta-box #services {
+  /* background: #a7a7c0; */
+  background: none;
+  border: 1px solid #000;
+  /* margin: 2px; */
+  /* border-radius: 25px; */
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.cta-box a {
+  margin: 0px;
+  padding: 15px 0px;
+  /* background: #000000; */
+  /* border-radius: 25px; */
+}
+
+.cta-box a:hover {
+  color: #2d2e2e;
+}
+
+.cta-box #products a {
+  color: #d3e7f6;
+  /* background: #000000; */
+  /* border-radius: 25px; */
+}
+
+.cta-box #products:hover,
+.cta-box #services:hover {
+  background: #b5c0c9;
+  border-radius: 28px;
+  color: #2d2e2e;
+}
+
+.cta-box #products a:hover {
+  background: #b5c0c9;
+  border-radius: 28px;
+  color: #2d2e2e;
+}
+
+/* RIPPLE EFFECT HERE:👇*/
+
+.cta-button span {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  /* background: rgba(255, 255, 255, 0.8); */
+  background: rgba(255, 166, 0, 0.8);
+  /* Adjust color as needed */
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.cta-button::after {
+  content: "";
+  background: #fff;
+  position: absolute;
+  padding: 50%;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(150%, -50%) scale(1);
+  opacity: 0;
+  transition:
+    transform 600ms,
+    opacity 600ms;
+}
+
+.cta-button:active::after {
+  transition: 0s;
+  opacity: 0.7;
+  transform: translate(150%, -50%) scale(0);
+}
+
+.widget-and-giggest-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* width: 100%; */
+  margin: 0px;
+  padding: 0px;
+  /* gap: 10px; */
+}
+
+.onet-biggest-logo {
+  min-width: 100%;
+  /* border-radius: 20px;
+    margin: 5px 0px;
+    padding: 10px; */
+}
+
+.tv-box {
+  margin: auto;
+  /* padding: 5px 0px 5px; */
+  border: 1px dotted #6d6d91;
+  width: 100%;
+  height: 85vh;
+  /* background: #e0e7f2; */
+  background: #24282f;
+  /* border-radius: 10px; */
+  box-shadow: 0px 0px 7px 2px rgba(18, 38, 63, 0.3);
+}
+
+.tv-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.parent {
+  top: -4px;
+  margin: auto;
+  padding: 5px;
+  width: 500px;
+  height: 120px;
+  /* display: flex; */
+  border: 4px solid rgb(98, 54, 231);
+  border-radius: 0px 0px 30px 50%;
+  position: relative;
+}
+
+.child1 {
+  margin: auto;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  outline: 4px dashed #6236e7;
+  border-radius: 50%;
+  background: red;
+  color: rgb(226, 225, 227);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  position: absolute;
+  right: -27px;
+  bottom: -25px;
+  z-index: 1px;
+}
+
+.child2 {
+  /* margin: auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.child2 p {
+  margin: 4px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* line-height: 40px; */
+  text-align: center;
+}
+
+.child2 span {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* line-height: 40px; */
+  text-align: center;
+}
+
+.unique-features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 100vw;
+}
+
+.unique-intro {
+  margin: auto;
+  padding: auto;
+  margin-bottom: 20px;
+}
+
+.unique-features h2 {
+  font-size: clamp(18px, 3.2vw, 100px);
+  margin: 2px 0px 0px;
+  text-align: center;
+  padding: 20px 2px 2px;
+  line-height: 25px;
+  text-transform: uppercase;
+}
+
+.unique-intro P {
+  text-align: center;
+  max-width: 100vw;
+  font-size: clamp(12px, 1vw, 100px);
+  margin: 0px;
+  padding: 4px;
+}
+
+.why-choseus {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  margin: auto;
+  gap: 5px;
+}
+
+/* .feature-group {
+    margin: 0px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.feature {
+  /* max-width: 30vw; */
+  min-height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2px;
+  padding: 20px 10px 10px;
+  /* margin-bottom: 45px; */
+  background: #fff;
+  border-radius: 10px;
+}
+
+.feature img {
+  width: 90px;
+  height: 90px;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 15px;
+  border-radius: 20%;
+  /* border: 2px dashed #000; */
+  box-shadow: 0px 0px 7px 2px rgba(18, 38, 63, 0.2);
+}
+
+.feature h3 {
+  font-size: clamp(14px, 1.5vw, 100px);
+  margin: 2px;
+  padding: 0px;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.feature span {
+  font-size: clamp(10px, 1.2vw, 100px);
+  text-align: center;
+  margin: 5px 0px 0px;
+}
+
+/* ...existing code... FOR TESTIMONIALS */
+.testimonials {
+  padding: 2rem 1rem;
+  background: #f9f9f9;
+  /* background: #913030; */
+  text-align: center;
+}
+
+.testimonial-heading {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-heading h2 {
+  margin: 0px;
+  font-size: 1.3rem;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.testimonial-heading span {
+  margin: 4px;
+  padding: 0px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.testimonials-swiper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  /* background: #fff; */
+  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); */
+  /* box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.5); */
+  /* padding: 1.5rem; */
+  padding: 10px;
+  /* margin: 0 auto; */
+}
+
+.testimonial-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.testimonial-details {
+  width: 58%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  /* background: #5025D1; */
+  border-radius: 10px;
+}
+
+.testimonial-details::after {
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  position: absolute;
+  border-radius: 10px 0px 0px 10px;
+  background: linear-gradient(360deg, #c0c0c4, #5025d1);
+  opacity: 0.15;
+}
+
+.testimonial-details img {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 25px;
+  padding: 1.5px;
+  border-radius: 50%;
+  /* border: 2px solid #5025d1; */
+  border: 2px solid #0166ff;
+  /* outline: 1px dotted #000; */
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+
+.testimonial-details img:hover {
+  transform: scale(1.1);
+}
+
+.testimonial-text {
+  font-style: italic;
+  font-size: clamp(14px, 0.8rem, 80px);
+  margin-bottom: 1rem;
+  padding: 0px 10px;
+  /* width: 32vw; */
+  text-align: center;
+}
+
+.testimonial-user {
+  font-weight: bold;
+  color: #0077ff;
+  font-size: clamp(10px, 0.8rem, 80px);
+}
+
+.shot {
+  width: 42%;
+  height: 40vh;
+  margin: 0px;
+  padding: 10px 5px;
+  border-radius: 2px;
+  position: relative;
+  /* background: linear-gradient(360deg, #dadcdf, #5025d1); */
+}
+
+.shot::after {
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  position: absolute;
+  border-radius: 0px 10px 10px 0px;
+  /* background: linear-gradient(360deg, #dadcdf, #5025d1); */
+  background: linear-gradient(360deg, #c0c0c4, #5025d1);
+  opacity: 0.15;
+}
+
+.shot img {
+  /* width: 30vw; */
+  height: 37vh;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 10px;
+  border: 0.1px solid #000;
+  outline: 1px dotted #000;
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+
+.shot img:hover {
+  transform: scale(1.05);
+}
+
+.read-more {
+  margin: auto;
+  padding: 10px 15px;
+  background: #f9f9f9;
+  /* background: #913030; */
+  text-align: center;
+}
+
+/* MEDIA QUERY STARTS FROM HERE! 👇 */
+
+@media screen and (max-width: 870px) {
+  .navbar .hideOnMobile {
+    display: none;
+  }
+
+  .navbar .menuOpen-button {
+    display: block;
+    padding-top: 7px;
+    border-radius: 5px;
+  }
+
+  .navbar .sidebar .menuClose-button {
+    font-size: clamp(20px, 2vw, 80px);
+    font-weight: bold;
+    /* background: #6236e7; */
+    width: 40vw;
+    height: 5vh;
+    margin-bottom: 80px;
+    border: 2px dashed #000;
+  }
+
+  .navbar .sidebar {
+    width: 50vw;
+    height: 100vh;
+    display: none;
+    margin: 0px;
+    padding: 5px 0px 450px;
+    background: rgba(218, 218, 220, 0.72);
+  }
+
+  .navbar .sidebar li {
+    width: 40vw;
+    height: 10vh;
+    margin: 2px 10px;
+    padding: 35px 5px;
+  }
+
+  .navbar .sidebar a {
+    font-size: clamp(20px, 3vw, 80px);
+  }
+
+  .sidebar hr {
+    display: flex;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 0px;
+    border: 4px solid #000;
+    position: absolute;
+    top: 76px;
+    z-index: 1;
+  }
+}
+
+/* Tablet - SCREEN SIZE */
+@media screen and (max-width: 775px) {
+  .logo h3 {
+    font-size: clamp(35px, 3vw, 100px);
+  }
+
+  .section-top h1 {
+    font-size: 3.8rem;
+    line-height: 65px;
+  }
+
+  .section-top span {
+    width: 80vw;
+  }
+
+  .section-top span {
+    font-size: clamp(28px, 3vw, 100px);
+  }
+
+  .cta-box {
+    max-width: 70vw;
+    /* max-height: 8.5vh; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    padding: 5px 10px;
+    gap: 10px;
+    /* background: green; */
+  }
+
+  .cta-button {
+    font-size: clamp(28px, 2.5vw, 100px);
+    /* font-weight: bold; */
+    /* width: 0vw; */
+    height: auto;
+    border-radius: 25px;
+    margin: 0px;
+    padding: 15px 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .wrapper1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .onet-biggest-logo {
+    min-width: 85%;
+    background-color: #0166ff;
+    border-radius: 20px;
+    margin: 5px 0px;
+    padding: 10px;
+    display: block;
+  }
+
+  .navbar .menuOpen-button {
+    display: block;
+    /* padding-top: 7px; */
+    font-weight: bold;
+    /* background: #6236e7; */
+    width: 25vw;
+    padding: 10px 10px 40px;
+    border-radius: 5px;
+  }
+
+  .navbar .sidebar .menuClose-button {
+    font-size: clamp(20px, 2vw, 80px);
+    font-weight: bold;
+    /* background: #6236e7; */
+    width: 40vw;
+    height: 5vh;
+    margin-bottom: 80px;
+    border: 2px dashed #000;
+  }
+
+  .navbar .sidebar {
+    width: 50vw;
+    height: 100vh;
+    display: none;
+    margin: 0px;
+    padding: 5px 0px 450px;
+    background: rgba(218, 218, 220, 0.72);
+  }
+
+  .navbar .sidebar li {
+    width: 40vw;
+    height: 10vh;
+    margin: 2px 10px;
+    padding: 35px 5px;
+  }
+
+  .navbar .sidebar a {
+    font-size: clamp(20px, 3vw, 80px);
+  }
+
+  .sidebar hr {
+    display: flex;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 0px;
+    border: 4px solid #000;
+    position: absolute;
+    top: 76px;
+    z-index: 1;
+  }
+}
+
+/* Phone - SCREEN SIZE (Large)*/
+@media screen and (max-width: 600px) {
+  .logo h3 {
+    font-size: clamp(25px, 4vw, 80px);
+  }
+
+  .section-top h1 {
+    font-size: clamp(45px, 3vw, 80px);
+    line-height: 60px;
+  }
+
+  .section-top span {
+    font-size: clamp(22px, 3vw, 80px);
+    padding: 2px;
+    margin-top: 5px;
+  }
+
+  .wrapper1 img {
+    min-width: 100%;
+    background-color: #0166ff;
+    border-radius: 20px;
+    margin: 5px 0px;
+    padding: 10px;
+  }
+
+  .navbar .sidebar {
+    top: 0;
+    bottom: 0;
+    width: 70vw;
+    height: 100vh;
+    display: none;
+    margin: 0px;
+    padding: 5px 0px 650px;
+    background: rgba(201, 205, 210, 0.465);
+  }
+
+  .navbar .menuOpen-button {
+    font-weight: bold;
+    /* background: #6236e7; */
+    width: 25vw;
+    padding: 10px 10px 40px;
+  }
+
+  .navbar .sidebar .menuClose-button {
+    font-weight: bold;
+    /* background: #6236e7; */
+    width: 55vw;
+    margin-bottom: 24px;
+  }
+
+  .sidebar hr {
+    display: flex;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 0px;
+    border: 4px solid #000;
+    position: absolute;
+    top: 76px;
+    z-index: 1;
+  }
+
+  .navbar .sidebar li {
+    width: 55vw;
+    height: 2vh;
+    margin: 5px;
+    padding: 32px 2px;
+  }
+
+  .navbar .sidebar li a {
+    margin: 0px;
+    padding: 20px 50px;
+  }
+
+  .cta-box {
+    max-width: 70vw;
+    /* max-height: 8.5vh; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    padding: 5px 10px;
+    gap: 10px;
+    /* background: green; */
+  }
+
+  .cta-button {
+    font-size: clamp(26px, 2.5vw, 100px);
+    /* font-weight: bold; */
+    /* width: 0vw; */
+    height: auto;
+    border-radius: 25px;
+    margin: 0px;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Phone - SCREEN SIZE (Medium)*/
+@media screen and (max-width: 450px) {
+  .logo img {
+    width: 50px;
+    margin: 0px;
+    padding: 0px;
+    /* margin-left: 20px; */
+  }
+
+  .logo h3 {
+    font-size: clamp(20px, 2vw, 80px);
+  }
+
+  .navbar .menuOpen-button {
+    font-weight: bold;
+    /* background: #6236e7; */
+    width: 40vw;
+    padding: 5px 5px 10px;
+  }
+
+  .section-top h1 {
+    font-size: clamp(35px, 3vw, 80px);
+    line-height: 45px;
+  }
+
+  .section-top span {
+    font-size: clamp(17px, 2vw, 80px);
+    padding: 2px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    width: 90vw;
+  }
+
+  .explorer-notes h1 {
+    font-size: clamp(20px, 4vw, 100px);
+    margin: 2px 0px;
+    text-align: center;
+  }
+
+  .explorer-notes p {
+    font-size: clamp(16px, 2vw, 80px);
+  }
+
+  .cta-box {
+    max-width: 68vw;
+    /* max-height: 8.5vh; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    padding: 5px 10px;
+    gap: 10px;
+    /* background: orange; */
+  }
+
+  .cta-button {
+    font-size: clamp(18px, 2vw, 100px);
+    /* font-weight: bold; */
+    /* width: 0vw; */
+    height: auto;
+    border-radius: 25px;
+    margin: 0px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Phone - SCREEN SIZE (Small)*/
+
+@media screen and (max-width: 364px) {
+  .feature-border-design {
+    /* max-width: 30vw; */
+    /* min-height: 325px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2px;
+    padding: 10px 10px 10px;
+    /* margin-bottom: 45px; */
+    background: #fff;
+    border-radius: 10px;
+  }
+
+  .feature {
+    /* border-radius: 20px; */
+    margin: 10px;
+    /* border: 1px dotted linear-gradient(360deg, #dadcdf, #5025d1); */
+    border: 1px dotted #5025d1;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .logo img {
+    width: 50px;
+    margin: 0px;
+    padding: 0px;
+    /* margin-left: 20px; */
+  }
+
+  .logo h3 {
+    font-size: clamp(20px, 2vw, 80px);
+  }
+
+  .navbar .menuOpen-button {
+    font-weight: bold;
+    /* background: #6236e7; */
+    width: 40vw;
+    padding: 5px 5px 10px;
+  }
+
+  .section-top h1 {
+    font-size: clamp(32px, 4vw, 80px);
+    line-height: 45px;
+  }
+
+  .section-top span {
+    font-size: clamp(17px, 2vw, 80px);
+    padding: 2px;
+    margin-top: 2px;
+  }
+
+  .explorer-notes h1 {
+    font-size: clamp(20px, 4vw, 100px);
+    margin: 2px 0px;
+    text-align: center;
+  }
+
+  .explorer-notes p {
+    font-size: clamp(16px, 2vw, 80px);
+  }
+
+  .cta-box {
+    max-width: 68vw;
+    /* max-height: 8.5vh; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    padding: 5px 10px;
+    gap: 5px;
+    /* background: indigo; */
+  }
+
+  .cta-button {
+    font-size: clamp(16px, 2vw, 100px);
+    /* font-weight: bold; */
+    /* width: 0vw; */
+    height: auto;
+    border-radius: 25px;
+    margin: 0px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 5px rgba(0, 0, 0, 0.3);
+  }
+}
