@@ -1843,7 +1843,7 @@ a {
 
   .primary-title {
     font-size: clamp(35px, 3vw, 80px);
-    padding-top: 10px;
+    padding-top: 5px;
     line-height: 45px;
   }
 
