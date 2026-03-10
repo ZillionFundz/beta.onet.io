@@ -1849,7 +1849,7 @@ a {
 
   .secondary-title {
     font-size: clamp(25px, 2vw, 30px);
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     line-height: 30px;
   }
 
