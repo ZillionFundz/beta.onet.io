@@ -1362,8 +1362,8 @@ a {
 }
 
 .feature img {
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
   margin: 0px;
   padding: 0px;
   margin-bottom: 15px;
@@ -1373,12 +1373,13 @@ a {
 }
 
 .feature h3 {
-  font-size: clamp(14px, 1.5vw, 100px);
+  font-size: clamp(14px, 1.2vw, 100px);
   margin: 2px;
   padding: 0px;
   line-height: 16px;
   text-align: center;
   text-transform: uppercase;
+  color: #5025d1;
 }
 
 .reason {
